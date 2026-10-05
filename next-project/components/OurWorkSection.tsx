@@ -1,19 +1,21 @@
 /**
- * @file VideoShowcaseSection.tsx
- * Video Showcase section matching the brief:
- * - Heading: See The Content We Post
- * - Three Placeholders: Video 1, Video 2, Video 3
- * - Interactive playable modal triggers
+ * @file OurWorkSection.tsx
+ * Our Work section strictly matching the user's latest brief:
+ * - Tag: Our Work
+ * - Heading: Don't Take Our Word For It. Watch It.
+ * - Subheading: Real Posts We Made For Real Clients. Same Voice. Same Face. None Of Their Time.
+ * - Client Video 1, 2, 3 with captions [Client Name, What They Do]
  */
 
 import React from 'react';
-import { Play, ArrowUpRight } from 'lucide-react';
+import { Play, ArrowUpRight, User } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { siteContent, ShowcaseVideo } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
+import { TitleReveal } from './TitleReveal';
 
-interface VideoShowcaseProps {
+interface OurWorkSectionProps {
   onSelectVideo: (video: ShowcaseVideo) => void;
 }
 
@@ -29,7 +31,7 @@ const gridContainerVariants: Variants = {
 };
 
 const cardItemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
@@ -40,35 +42,39 @@ const cardItemVariants: Variants = {
   },
 };
 
-export const VideoShowcaseSection: React.FC<VideoShowcaseProps> = ({ onSelectVideo }) => {
-  const { videoShowcase } = siteContent;
+export const OurWorkSection: React.FC<OurWorkSectionProps> = ({ onSelectVideo }) => {
+  const { ourWork } = siteContent;
   const shouldReduceMotion = useReducedMotion();
 
   return (
     <section
-      id="showcase"
-      aria-label="See The Content We Post"
-      className="py-16 md:py-[88px] border-b border-[rgba(26,24,21,0.12)] bg-[#F4F1EC] scroll-mt-20"
+      id="our-work"
+      aria-label="Our Work"
+      className="py-16 md:py-[88px] border-b border-[rgba(26,24,21,0.12)] bg-[#FBFAF8] scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] space-y-12 md:space-y-16">
         {/* Section Header */}
         <ScrollReveal>
           <div className="max-w-3xl space-y-3">
             <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
-              Recent Client Deliverables
+              {ourWork.tag}
             </span>
 
-            <h2 className="font-normal text-[28px] sm:text-[34px] lg:text-[40px] leading-[1.15] tracking-[-0.02em] text-[#1A1815] [text-wrap:pretty]">
-              {videoShowcase.heading}
-            </h2>
+            <TitleReveal
+              as="h2"
+              delay={0.08}
+              className="font-normal text-[28px] sm:text-[34px] lg:text-[40px] leading-[1.15] tracking-[-0.02em] text-[#1A1815] [text-wrap:pretty]"
+            >
+              {ourWork.heading}
+            </TitleReveal>
 
             <p className="font-normal text-[16px] text-[#5F5A52] leading-[1.68]">
-              {videoShowcase.subheading}
+              {ourWork.subheading}
             </p>
           </div>
         </ScrollReveal>
 
-        {/* 3 Video Placeholders */}
+        {/* 3 Client Video Cards */}
         <motion.div
           variants={shouldReduceMotion ? undefined : gridContainerVariants}
           initial="hidden"
@@ -76,7 +82,7 @@ export const VideoShowcaseSection: React.FC<VideoShowcaseProps> = ({ onSelectVid
           viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          {videoShowcase.videos.map((video) => (
+          {ourWork.videos.map((video) => (
             <motion.article
               key={video.id}
               variants={shouldReduceMotion ? undefined : cardItemVariants}
@@ -91,7 +97,7 @@ export const VideoShowcaseSection: React.FC<VideoShowcaseProps> = ({ onSelectVid
                   className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 opacity-90"
                 />
 
-                {/* Terracotta Play Overlay */}
+                {/* Terracotta Play Button Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/35 transition-colors">
                   <div className="w-14 h-14 rounded-full bg-[#C25A3C] flex items-center justify-center shadow-md transform transition-transform group-hover:scale-110">
                     <Play className="w-5 h-5 fill-[#FBFAF8] text-[#FBFAF8] translate-x-0.5" />
@@ -103,31 +109,35 @@ export const VideoShowcaseSection: React.FC<VideoShowcaseProps> = ({ onSelectVid
                   {video.duration}
                 </div>
 
-                {/* Tag Badge */}
+                {/* Category / Pipeline Tag */}
                 <div className="absolute top-3 left-3 px-2.5 py-1 rounded-[6px] bg-black/75 backdrop-blur-xs text-[#FBFAF8] font-semibold text-[10.5px] uppercase tracking-wider">
-                  {video.tag}
+                  {video.category}
                 </div>
               </div>
 
               {/* Card Body */}
               <div className="p-6 bg-[#FFFFFF] flex flex-col flex-1 justify-between gap-4">
-                <div className="space-y-2">
-                  <div className="text-[12px] font-semibold text-[#C25A3C] uppercase tracking-wider">
-                    {video.category}
+                <div className="space-y-3">
+                  {/* Client Name & Role Caption specified in user prompt */}
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[6px] bg-[#F4F1EC] border border-[rgba(26,24,21,0.08)] text-[12px] font-semibold text-[#1A1815]">
+                    <User className="w-3.5 h-3.5 text-[#C25A3C]" />
+                    <span>Caption: {video.captionPlaceholder}</span>
                   </div>
+
                   <h3 className="font-semibold text-[19px] leading-[1.3] text-[#1A1815] group-hover:text-[#C25A3C] transition-colors">
                     {video.title}
                   </h3>
+
                   <p className="font-normal text-[14.5px] leading-[1.6] text-[#5F5A52]">
                     {video.description}
                   </p>
                 </div>
 
-                {/* Card Action Row */}
+                {/* Action Row */}
                 <div className="pt-4 border-t border-[rgba(26,24,21,0.08)] flex items-center justify-between font-medium text-[13px]">
-                  <span className="text-[#857F74]">Preview Cut</span>
+                  <span className="text-[#857F74]">Watch Client Post</span>
                   <span className="inline-flex items-center gap-1 text-[#1A1815] group-hover:text-[#C25A3C] transition-colors">
-                    Watch Video
+                    Play Film
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
                 </div>

@@ -6,13 +6,15 @@ import { ScrollProgress } from '../components/ScrollProgress';
 import { Navigation } from '../components/Navigation';
 import { SectionTransition } from '../components/SectionTransition';
 import { HeroSection } from '../components/HeroSection';
-import { StatementSection } from '../components/StatementSection';
-import { WhatWeDoSection } from '../components/WhatWeDoSection';
+import { OurWorkSection } from '../components/OurWorkSection';
+import { TheProblemSection } from '../components/TheProblemSection';
+import { WhatChangesSection } from '../components/WhatChangesSection';
 import { HowYouShowUpSection } from '../components/HowYouShowUpSection';
 import { WhoWeServeSection } from '../components/WhoWeServeSection';
-import { HowWeWorkSection } from '../components/HowWeWorkSection';
+import { HowItWorksSection } from '../components/HowItWorksSection';
+import { OurPromiseSection } from '../components/OurPromiseSection';
 import { AboutSection } from '../components/AboutSection';
-import { VideoShowcaseSection } from '../components/VideoShowcaseSection';
+import { FitAnalysisSection } from '../components/FitAnalysisSection';
 import { FinalCtaSection } from '../components/FinalCtaSection';
 import { Footer } from '../components/Footer';
 import { VideoModal } from '../components/VideoModal';
@@ -52,42 +54,52 @@ export default function Home() {
           <HeroSection onPlayFeatured={(video) => setActiveVideo(video)} />
         </SectionTransition>
 
-        {/* 2. Core Statement */}
+        {/* 2. Our Work (#our-work) */}
         <SectionTransition>
-          <StatementSection />
+          <OurWorkSection onSelectVideo={(video) => setActiveVideo(video)} />
         </SectionTransition>
 
-        {/* 3. What We Do */}
+        {/* 3. The Problem */}
         <SectionTransition>
-          <WhatWeDoSection />
+          <TheProblemSection />
         </SectionTransition>
 
-        {/* 4. How You Show Up */}
+        {/* 4. What Changes */}
+        <SectionTransition>
+          <WhatChangesSection />
+        </SectionTransition>
+
+        {/* 5. How You Show Up */}
         <SectionTransition>
           <HowYouShowUpSection />
         </SectionTransition>
 
-        {/* 5. Who We Serve */}
+        {/* 6. Who We Serve (#who-we-serve) */}
         <SectionTransition>
           <WhoWeServeSection />
         </SectionTransition>
 
-        {/* 6. How We Work */}
+        {/* 7. How It Works (#how-it-works) */}
         <SectionTransition>
-          <HowWeWorkSection />
+          <HowItWorksSection />
         </SectionTransition>
 
-        {/* 7. About Us */}
+        {/* 8. Our Promise */}
+        <SectionTransition>
+          <OurPromiseSection />
+        </SectionTransition>
+
+        {/* 9. About Us (#about) */}
         <SectionTransition>
           <AboutSection />
         </SectionTransition>
 
-        {/* 8. Video Showcase */}
+        {/* 10. Fit / Not A Fit */}
         <SectionTransition>
-          <VideoShowcaseSection onSelectVideo={(video) => setActiveVideo(video)} />
+          <FitAnalysisSection />
         </SectionTransition>
 
-        {/* 9. Final Call To Action (#book) */}
+        {/* 11. Final Call To Action (#book) */}
         <SectionTransition>
           <FinalCtaSection />
         </SectionTransition>

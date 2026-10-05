@@ -1,16 +1,18 @@
 /**
  * @file FinalCtaSection.tsx
- * Final Call To Action section matching the brief:
+ * Final Call To Action section strictly matching the user's latest brief:
  * - Tag: Four Clients A Quarter
- * - Heading: Ready To Be Seen Without The Work?
- * - Subtext: Book A 30 Minute Strategy Call. You Leave With A Written Game Plan, Whether Or Not We Work Together.
- * - Button: Book A Strategy Call (Placeholder link: YOUR_BOOKING_LINK)
+ * - Heading: Three Months From Now, You'll Either Be Posting Every Day Or Still Planning To.
+ * - Subtext: Book A 30 Minute Strategy Call. You Leave With A Written Game Plan, Even If We Never Work Together.
+ * - Button: Book A Strategy Call (Link: YOUR_BOOKING_LINK)
+ * - Guarantee notice: First Post Live In 7 Days, Or Your First Month Is Free.
  */
 
 import React, { useState } from 'react';
-import { ArrowRight, Calendar, CheckCircle2, Clock, ShieldCheck, Copy, Check } from 'lucide-react';
+import { ArrowRight, Calendar, Clock, ShieldCheck, Copy, Check } from 'lucide-react';
 import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
+import { TitleReveal } from './TitleReveal';
 
 export const FinalCtaSection: React.FC = () => {
   const { finalCta } = siteContent;
@@ -18,7 +20,7 @@ export const FinalCtaSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   const handleBookingClick = (e: React.MouseEvent) => {
-    // If user has not replaced placeholder 'YOUR_BOOKING_LINK', open the internal intake modal
+    // If developer/user has not replaced YOUR_BOOKING_LINK with an external URL, open modal scheduler
     if (finalCta.ctaButton.url === 'YOUR_BOOKING_LINK' || !finalCta.ctaButton.url.startsWith('http')) {
       e.preventDefault();
       setShowModal(true);
@@ -55,12 +57,14 @@ export const FinalCtaSection: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={100}>
-          {/* Heading */}
-          <h2 className="font-normal text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.025em] text-[#1A1815] [text-wrap:pretty]">
-            {finalCta.heading}
-          </h2>
-        </ScrollReveal>
+        {/* Heading with subtle TitleReveal */}
+        <TitleReveal
+          as="h2"
+          delay={0.08}
+          className="font-normal text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.025em] text-[#1A1815] [text-wrap:pretty]"
+        >
+          {finalCta.heading}
+        </TitleReveal>
 
         <ScrollReveal delay={200}>
           {/* Subtext */}
@@ -92,24 +96,21 @@ export const FinalCtaSection: React.FC = () => {
             </button>
           </div>
 
+          {/* Guarantee notice row */}
           <div className="pt-6 flex flex-wrap items-center justify-center gap-y-2 gap-x-8 text-[13px] text-[#6E685E]">
-            <div className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-[#C25A3C]" />
-              <span>30 Minutes Duration</span>
+            <div className="flex items-center gap-1.5 font-medium text-[#C25A3C]">
+              <ShieldCheck className="w-4 h-4" />
+              <span>{finalCta.guaranteeNotice}</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-[#C25A3C]" />
-              <span>Written Game Plan Included</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-[#C25A3C]" />
-              <span>Zero Pitch Guarantee</span>
+              <Clock className="w-4 h-4 text-[#857F74]" />
+              <span>30-Minute Written Game Plan</span>
             </div>
           </div>
         </ScrollReveal>
       </div>
 
-      {/* Fallback Intake & Strategy Scheduler Modal */}
+      {/* Fallback Strategy Call Intake Modal */}
       {showModal && (
         <div
           role="dialog"
@@ -126,10 +127,10 @@ export const FinalCtaSection: React.FC = () => {
                 30-Minute Strategy Session
               </span>
               <h3 className="text-[24px] font-semibold text-[#1A1815]">
-                Schedule Your Call
+                Book Your Strategy Call
               </h3>
               <p className="text-[14.5px] text-[#5F5A52]">
-                Leave with a complete content roadmap for your coaching or founder brand.
+                Leave with a written game plan, even if we never work together.
               </p>
             </div>
 
@@ -143,12 +144,12 @@ export const FinalCtaSection: React.FC = () => {
             >
               <div>
                 <label className="block text-[13px] font-medium text-[#1A1815] mb-1">
-                  Your Full Name
+                  Full Name
                 </label>
                 <input
                   required
                   type="text"
-                  placeholder="e.g. Alex Rivera"
+                  placeholder="e.g. Alex Sterling"
                   className="w-full px-3.5 py-2.5 rounded-[8px] border border-[rgba(26,24,21,0.18)] bg-[#FBFAF8] text-[14px] text-[#1A1815] focus:outline-none focus:border-[#C25A3C]"
                 />
               </div>
@@ -172,7 +173,7 @@ export const FinalCtaSection: React.FC = () => {
                 <select className="w-full px-3.5 py-2.5 rounded-[8px] border border-[rgba(26,24,21,0.18)] bg-[#FBFAF8] text-[14px] text-[#1A1815] focus:outline-none focus:border-[#C25A3C]">
                   <option value="coach">High-Ticket / Executive Coach</option>
                   <option value="founder">Company Founder / CEO</option>
-                  <option value="other">Creator / Agency Operator</option>
+                  <option value="other">Advisory Partner</option>
                 </select>
               </div>
 

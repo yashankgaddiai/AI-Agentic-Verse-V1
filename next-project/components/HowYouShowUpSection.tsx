@@ -1,16 +1,18 @@
 /**
  * @file HowYouShowUpSection.tsx
- * How You Show Up section strictly matching the brief:
+ * How You Show Up section strictly matching the user's latest brief:
  * - Tag: How You Show Up
- * - Heading: Two Ways To Be On Camera. Or Never Be.
- * - Real You vs AI Avatar
- * - "Most Clients Start With Their Own Footage..." note
+ * - Heading: Film When You Want To. Or Never Film Again.
+ * - Real You (Bullet points: Your Real Face And Energy, No Set, No Crew, No Editing)
+ * - AI Avatar (Bullet points: You Never Film Again, You Approve A Test Video First, Or You Don't Pay)
+ * - Switch note: Most Clients Start With Real You And Switch To The Avatar...
  */
 
 import React from 'react';
-import { Smartphone, Sparkles, Check, ArrowRight } from 'lucide-react';
+import { Smartphone, Bot, Check, ArrowRight } from 'lucide-react';
 import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
+import { TitleReveal } from './TitleReveal';
 
 export const HowYouShowUpSection: React.FC = () => {
   const { howYouShowUp } = siteContent;
@@ -23,18 +25,22 @@ export const HowYouShowUpSection: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] space-y-12 md:space-y-16">
         {/* Section Header */}
-        <ScrollReveal>
-          <div className="max-w-3xl space-y-3">
+        <div className="max-w-3xl space-y-3">
+          <ScrollReveal>
             <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
               {howYouShowUp.tag}
             </span>
+          </ScrollReveal>
 
-            <h2 className="font-normal text-[28px] sm:text-[34px] lg:text-[40px] leading-[1.15] tracking-[-0.02em] text-[#1A1815] [text-wrap:pretty]">
-              Two Ways To Be On Camera.{' '}
-              <span className="text-[#6E685E]">Or Never Be.</span>
-            </h2>
-          </div>
-        </ScrollReveal>
+          <TitleReveal
+            as="h2"
+            delay={0.08}
+            className="font-normal text-[28px] sm:text-[34px] lg:text-[40px] leading-[1.15] tracking-[-0.02em] text-[#1A1815] [text-wrap:pretty]"
+          >
+            Film When You Want To.{' '}
+            <span className="text-[#6E685E]">Or Never Film Again.</span>
+          </TitleReveal>
+        </div>
 
         {/* Two Options Side by Side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
@@ -61,47 +67,44 @@ export const HowYouShowUpSection: React.FC = () => {
                 </div>
 
                 <p className="font-normal text-[16px] leading-[1.68] text-[#5F5A52]">
-                  Film clips on your phone whenever it fits your day. We turn the footage into daily posts.
+                  Film short clips on your phone, whenever it fits your day. We turn them into scripted, edited, captioned posts for every platform.
                 </p>
 
-                <div className="bg-[#FBFAF8] rounded-[12px] p-4 border border-[rgba(26,24,21,0.08)] space-y-2">
+                {/* Specified Bullet Points */}
+                <div className="bg-[#FBFAF8] rounded-[12px] p-5 border border-[rgba(26,24,21,0.08)] space-y-3">
                   <div className="text-[12.5px] font-semibold text-[#1A1815] uppercase tracking-wider">
-                    How it operates:
+                    Core Attributes:
                   </div>
-                  <ul className="text-[13.5px] text-[#5F5A52] space-y-1.5">
-                    <li className="flex items-center gap-2">
+                  <ul className="text-[14px] text-[#37332C] space-y-2.5">
+                    <li className="flex items-center gap-2.5">
                       <Check className="w-4 h-4 text-[#C25A3C] shrink-0" />
-                      <span>Record raw thoughts on walks, at desk, or between calls</span>
+                      <span className="font-medium">Your Real Face And Energy</span>
                     </li>
-                    <li className="flex items-center gap-2">
+                    <li className="flex items-center gap-2.5">
                       <Check className="w-4 h-4 text-[#C25A3C] shrink-0" />
-                      <span>Drop files into your private agency drive</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-[#C25A3C] shrink-0" />
-                      <span>We edit, caption, format and post daily across all channels</span>
+                      <span className="font-medium">No Set, No Crew, No Editing</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="pt-6 mt-6 border-t border-[rgba(26,24,21,0.08)] text-[13.5px] text-[#857F74]">
-                Ideal for natural speakers who enjoy talking on camera in short bursts.
+                Perfect for coaches and founders who love talking on camera without post-production friction.
               </div>
             </div>
           </ScrollReveal>
 
           {/* Card 2: AI Avatar */}
           <ScrollReveal delay={200}>
-            <div className="bg-[#FFFFFF] rounded-[16px] border-2 border-[#C25A3C]/30 p-8 shadow-[0_12px_32px_rgba(194,90,60,0.08)] flex flex-col justify-between h-full relative overflow-hidden">
+            <div className="bg-[#FFFFFF] rounded-[16px] border-2 border-[#C25A3C]/35 p-8 shadow-[0_12px_32px_rgba(194,90,60,0.08)] flex flex-col justify-between h-full relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-[#C25A3C] text-white px-4 py-1 text-[11px] font-bold uppercase tracking-widest rounded-bl-[12px]">
-                Autonomous Pipeline
+                Autonomous System
               </div>
 
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="w-12 h-12 rounded-[12px] bg-[#C25A3C]/10 border border-[#C25A3C]/20 flex items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-[#C25A3C]" />
+                    <Bot className="w-6 h-6 text-[#C25A3C]" />
                   </div>
                   <span className="px-3 py-1 rounded-full text-[11.5px] font-semibold uppercase tracking-wider bg-[#C25A3C]/10 text-[#C25A3C]">
                     Option 02
@@ -118,32 +121,29 @@ export const HowYouShowUpSection: React.FC = () => {
                 </div>
 
                 <p className="font-normal text-[16px] leading-[1.68] text-[#5F5A52]">
-                  Send one HD video and one voice recording, once. We build a clone of your face and voice, and every post after that comes from your avatar. You never film again.
+                  Send us one 5 minute HD video and one 10 to 15 minute voice recording. Once. We build a clone of your face and voice, and every post comes from it.
                 </p>
 
-                <div className="bg-[#FBFAF8] rounded-[12px] p-4 border border-[rgba(26,24,21,0.08)] space-y-2">
+                {/* Specified Bullet Points */}
+                <div className="bg-[#FBFAF8] rounded-[12px] p-5 border border-[rgba(26,24,21,0.08)] space-y-3">
                   <div className="text-[12.5px] font-semibold text-[#1A1815] uppercase tracking-wider">
-                    How it operates:
+                    Core Attributes:
                   </div>
-                  <ul className="text-[13.5px] text-[#5F5A52] space-y-1.5">
-                    <li className="flex items-center gap-2">
+                  <ul className="text-[14px] text-[#37332C] space-y-2.5">
+                    <li className="flex items-center gap-2.5">
                       <Check className="w-4 h-4 text-[#C25A3C] shrink-0" />
-                      <span>One 15-minute high definition calibration capture</span>
+                      <span className="font-medium">You Never Film Again</span>
                     </li>
-                    <li className="flex items-center gap-2">
+                    <li className="flex items-center gap-2.5">
                       <Check className="w-4 h-4 text-[#C25A3C] shrink-0" />
-                      <span>Full voice clone retaining your cadence, tone and inflection</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-[#C25A3C] shrink-0" />
-                      <span>We write, render and distribute daily video posts automatically</span>
+                      <span className="font-medium">You Approve A Test Video First, Or You Don't Pay</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="pt-6 mt-6 border-t border-[rgba(26,24,21,0.08)] text-[13.5px] text-[#C25A3C] font-medium">
-                Ideal for busy founders & coaches who have zero time for weekly camera sessions.
+                Perfect for busy operators who want omnipresent reach with absolute zero weekly camera hours.
               </div>
             </div>
           </ScrollReveal>

@@ -1,8 +1,8 @@
 /**
  * @file WhoWeServeSection.tsx
- * Who We Serve section matching the user's brief:
+ * Who We Serve section strictly matching the user's latest brief:
  * - Tag: Who We Serve
- * - Heading: Built For People Who Sell On Trust
+ * - Heading: Two Kinds Of Experts. One Goal: Be The Obvious Choice.
  * - Coaches & Founders offers with links to coach.html and founder.html
  */
 
@@ -10,6 +10,7 @@ import React from 'react';
 import { ArrowRight, UserCheck, Briefcase } from 'lucide-react';
 import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
+import { TitleReveal } from './TitleReveal';
 
 export const WhoWeServeSection: React.FC = () => {
   const { whoWeServe } = siteContent;
@@ -22,20 +23,24 @@ export const WhoWeServeSection: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] space-y-12 md:space-y-16">
         {/* Section Header */}
-        <ScrollReveal>
-          <div className="max-w-3xl space-y-3">
+        <div className="max-w-3xl space-y-3">
+          <ScrollReveal>
             <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
               {whoWeServe.tag}
             </span>
+          </ScrollReveal>
 
-            <h2 className="font-normal text-[28px] sm:text-[34px] lg:text-[40px] leading-[1.15] tracking-[-0.02em] text-[#1A1815] [text-wrap:pretty]">
-              Built For People{' '}
-              <span className="text-[#6E685E]">
-                Who Sell On Trust
-              </span>
-            </h2>
-          </div>
-        </ScrollReveal>
+          <TitleReveal
+            as="h2"
+            delay={0.08}
+            className="font-normal text-[28px] sm:text-[34px] lg:text-[40px] leading-[1.15] tracking-[-0.02em] text-[#1A1815] [text-wrap:pretty]"
+          >
+            Two Kinds Of Experts.{' '}
+            <span className="text-[#6E685E]">
+              One Goal: Be The Obvious Choice.
+            </span>
+          </TitleReveal>
+        </div>
 
         {/* 2 Audience Offer Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
@@ -49,7 +54,7 @@ export const WhoWeServeSection: React.FC = () => {
 
                 <div className="space-y-1.5">
                   <span className="text-[12px] font-semibold uppercase tracking-wider text-[#C25A3C]">
-                    For Executive & High-Ticket
+                    For High-Ticket & Executive Mentors
                   </span>
                   <h3 className="font-semibold text-[26px] text-[#1A1815]">
                     Coaches
@@ -57,25 +62,21 @@ export const WhoWeServeSection: React.FC = () => {
                 </div>
 
                 <p className="font-normal text-[16px] leading-[1.68] text-[#5F5A52]">
-                  Stay visible every day without giving up your coaching hours. Choose the Content Engine, or the Full Growth Engine if you want content and ads working as one channel.
+                  {whoWeServe.audiences[0].description}
                 </p>
 
                 <div className="space-y-2 pt-2">
                   <div className="text-[13px] font-semibold text-[#1A1815] uppercase tracking-wider">
-                    Core Benefits:
+                    Outcomes:
                   </div>
                   <ul className="text-[14px] text-[#6E685E] space-y-2">
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#C25A3C] mt-2 shrink-0" />
-                      <span>Zero interruption to your client coaching sessions</span>
+                      <span>Prospects consume your frameworks before getting on calls</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#C25A3C] mt-2 shrink-0" />
-                      <span>Consistent inbound authority attracting high-ticket retainers</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#C25A3C] mt-2 shrink-0" />
-                      <span>Choice between Content Engine or Full Growth (with Ads)</span>
+                      <span>All calendar coaching delivery hours are 100% protected</span>
                     </li>
                   </ul>
                 </div>
@@ -84,10 +85,10 @@ export const WhoWeServeSection: React.FC = () => {
               {/* Dedicated Offer Link: coach.html */}
               <div className="pt-8 mt-6 border-t border-[rgba(26,24,21,0.08)]">
                 <a
-                  href="/coach.html"
+                  href={whoWeServe.audiences[0].linkUrl}
                   className="inline-flex items-center gap-2 font-semibold text-[15px] text-[#1A1815] hover:text-[#C25A3C] transition-colors group"
                 >
-                  <span>See The Coach Offer →</span>
+                  <span>{whoWeServe.audiences[0].linkText}</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
@@ -104,7 +105,7 @@ export const WhoWeServeSection: React.FC = () => {
 
                 <div className="space-y-1.5">
                   <span className="text-[12px] font-semibold uppercase tracking-wider text-[#C25A3C]">
-                    For B2B Operators & CEOs
+                    For B2B Operators, CEOs & Innovators
                   </span>
                   <h3 className="font-semibold text-[26px] text-[#1A1815]">
                     Founders
@@ -112,25 +113,21 @@ export const WhoWeServeSection: React.FC = () => {
                 </div>
 
                 <p className="font-normal text-[16px] leading-[1.68] text-[#5F5A52]">
-                  Build a following on LinkedIn and X in your own words, without spending your evenings writing and editing.
+                  {whoWeServe.audiences[1].description}
                 </p>
 
                 <div className="space-y-2 pt-2">
                   <div className="text-[13px] font-semibold text-[#1A1815] uppercase tracking-wider">
-                    Core Benefits:
+                    Outcomes:
                   </div>
                   <ul className="text-[14px] text-[#6E685E] space-y-2">
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#C25A3C] mt-2 shrink-0" />
-                      <span>Executive presence that drives recruiting, investors and pipeline</span>
+                      <span>Consistent executive presence attracting talent, funds, and deals</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#C25A3C] mt-2 shrink-0" />
-                      <span>Zero hours spent writing drafts or editing video timelines</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#C25A3C] mt-2 shrink-0" />
-                      <span>Authentic tone captured from 30-minute monthly syncs or raw audio</span>
+                      <span>Zero evenings spent writing social drafts or reviewing timelines</span>
                     </li>
                   </ul>
                 </div>
@@ -139,10 +136,10 @@ export const WhoWeServeSection: React.FC = () => {
               {/* Dedicated Offer Link: founder.html */}
               <div className="pt-8 mt-6 border-t border-[rgba(26,24,21,0.08)]">
                 <a
-                  href="/founder.html"
+                  href={whoWeServe.audiences[1].linkUrl}
                   className="inline-flex items-center gap-2 font-semibold text-[15px] text-[#1A1815] hover:text-[#C25A3C] transition-colors group"
                 >
-                  <span>See The Founder Offer →</span>
+                  <span>{whoWeServe.audiences[1].linkText}</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>

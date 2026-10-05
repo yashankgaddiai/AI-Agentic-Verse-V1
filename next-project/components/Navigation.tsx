@@ -1,9 +1,9 @@
 /**
  * @file Navigation.tsx
- * Top navigation component matching the user's brief:
+ * Top navigation component matching the latest brief:
  * - Logo: AI Agentic Verse
- * - Links: What We Do · Who We Serve · How We Work · About
- * - Button: Book A Call (Button)
+ * - Links: Our Work · How It Works · Who We Serve · About
+ * - Button: Book A Call
  */
 
 import React, { useState, useEffect } from 'react';
@@ -14,7 +14,7 @@ import { BrandLogo } from './BrandLogo';
 
 export const Navigation: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>('what-we-do');
+  const [activeSection, setActiveSection] = useState<string>('our-work');
   const { navigation } = siteContent;
 
   const navLinks = navigation.links;

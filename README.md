@@ -1,93 +1,130 @@
-# AI Agentic Verse | Content, Built And Run For You
+# AI Agentic Verse | Be The Expert Your Market Sees Every Day
 
-We Build And Run Content For Coaches And Founders, In Their Own Voice, On Camera Or Through An AI Avatar.
+For Coaches And Founders. We Turn What You Know Into Daily Content In Your Own Face And Voice. First Post Live In 7 Days, Or Your First Month Is Free.
 
 ---
 
-## ✦ Page Architecture & Specification
+## ✦ Page Architecture (Title Case With Brand Name Applied)
 
-### 1. Meta & SEO
-- **Title**: `AI Agentic Verse | Content, Built And Run For You`
-- **Description**: `We Build And Run Content For Coaches And Founders, In Their Own Voice, On Camera Or Through An AI Avatar.`
-- Managed dynamically via `<SEO />` and synchronized in `index.html` and `metadata.json`.
+### 1. Meta & Dynamic SEO
+- **Title**: `AI Agentic Verse | Be The Expert Your Market Sees Every Day`
+- **Description**: `For Coaches And Founders. We Turn What You Know Into Daily Content In Your Own Face And Voice. First Post Live In 7 Days, Or Your First Month Is Free.`
+- Dynamically managed via `SEO.tsx` and synchronized in `index.html` and `metadata.json`.
 
-### 2. Navigation
+### 1.1 Editorial Motion & Subtle Title Reveal (`TitleReveal.tsx`)
+- All major section headlines and titles feature an editorial mask reveal animation powered by Framer Motion.
+- Uses an upward mask glide (`y: 40% -> 0`), gentle blur-dissolve (`blur(4px) -> blur(0px)`), and a smooth Apple/Linear deceleration cubic-bezier (`[0.16, 1, 0.3, 1]`) triggered via viewport scroll-spy.
+- Fully honors `prefers-reduced-motion` through `useReducedMotion()`.
+
+### 2. Navigation (`Navigation.tsx`)
 - **Logo**: `AI Agentic Verse` with official brand mark (`src/assets/images/logo.png`)
 - **Links**:
-  - `What We Do` (`#what-we-do`)
+  - `Our Work` (`#our-work`)
+  - `How It Works` (`#how-it-works`)
   - `Who We Serve` (`#who-we-serve`)
-  - `How We Work` (`#how-we-work`)
   - `About` (`#about`)
-- **Action Button**: `Book A Call` (Pill button linking to `#book` with slant arrow `↗`)
+- **Button**: `Book A Call` (Pill capsule button linking smoothly to `#book`)
 
-### 3. Hero
-- **Tag**: `Content And Growth, Run For You`
-- **Headline**: `Your Voice, Everywhere Your Clients Are Looking.`
-- **Subtext**: `We Build And Run Your Content From Strategy To Daily Posts. Show Up On Camera When It Suits You, Or Let Your AI Avatar Do It. Your First Post Goes Live In 7 Days.`
-- **CTA**: `Book A Strategy Call` (links to `#book`)
-- **Scarcity Notice**: `We Work With Four Clients A Quarter. Spots Are Limited.`
-- **Interactive Mode Visual**: Live toggle previewing "Real You (Phone)" vs "AI Avatar Twin (Autonomous)".
+### 3. Hero (`HeroSection.tsx`)
+- **Tag**: `For Coaches And Founders Who Sell On Trust`
+- **Headline**: `Be The Expert Your Market Sees Every Day. Without Filming, Editing, Or Posting.`
+- **Subtext**: `We Turn What You Already Know Into Daily Content, In Your Own Face And Voice. You Approve It. We Do The Rest. Your First Post Goes Live In 7 Days, Or Your First Month Is Free.`
+- **Button**: `Book A Strategy Call` (links to `#book`)
+- **Scarcity Notice**: `We Take Four Clients A Quarter. Every Client Gets The Team That Sold Them.`
+- **Interactive Switcher**: Live interactive preview comparing "Real You" (Phone footage) vs "AI Avatar" (Autonomous twin).
 
-### 4. Statement
-- High-impact editorial quotation block:
-  > *"Great Experts Stay Invisible For One Reason: Content Takes Time They Don't Have. We Exist To Remove That Cost, So Your Expertise Gets Seen Without Costing You Your Week."*
+### 4. Our Work (`OurWorkSection.tsx` / `#our-work`)
+- **Tag**: `Our Work`
+- **Heading**: `Don't Take Our Word For It. Watch It.`
+- **Subheading**: `Real Posts We Made For Real Clients. Same Voice. Same Face. None Of Their Time.`
+- **Client Videos with Captions**:
+  - `Client Video 1, Caption: [Elena Vance, Executive Leadership Coach]`
+  - `Client Video 2, Caption: [David Sterling, B2B Enterprise SaaS Founder]`
+  - `Client Video 3, Caption: [Maya Lin, High-Ticket Sales Consultant]`
+- Features interactive theatre modal (`VideoModal.tsx`) with playable preview streams.
 
-### 5. What We Do (`#what-we-do`)
-- **Heading**: `One Team For Everything Between Your Idea And Your Audience`
-- **Pillars**:
-  - **Strategy**: Hooks, Story Angles, And Content Pillars Built From Your Own Ideas And From What Is Already Winning Attention In Your Market.
-  - **Production**: Scripts In Your Voice, Full Editing, Captions, And Repurposing Across Every Platform That Matters To You.
-  - **Growth**: Social Media Management And Paid Ads That Turn Steady Content Into A Real Client Channel, With One Weekly Report.
+### 5. The Problem (`TheProblemSection.tsx`)
+- **Tag**: `The Problem`
+- **Heading**: `The Best Expert Doesn't Win. The Most Visible One Does.`
+- **Paragraphs**:
+  - *You're Better At What You Do Than Most People Posting About It. But They Show Up Every Day, And You Don't. So When A Buyer Is Ready, They Think Of Them First.*
+  - *It's Not That You Don't Know Content Works. It's That Content Eats Your Week. Scripts, Filming, Editing, Captions, Posting. You Keep It Up For Two Weeks. Then Client Work Takes Over And Your Page Goes Quiet Again.*
+- **Punchline**: *“Every Quiet Week Is A Week Someone Less Skilled Gets The Client Who Should Have Been Yours.”*
 
-### 6. How You Show Up (`#how-you-show-up`)
-- **Heading**: `Two Ways To Be On Camera. Or Never Be.`
-- **Options**:
-  - **Real You**: Film clips on your phone whenever it fits your day. We turn the footage into daily posts.
-  - **AI Avatar**: Send one HD video and one voice recording, once. We build a clone of your face and voice, and every post after that comes from your avatar. You never film again.
-- **Guarantee Note**: *"Most clients start with their own footage and move to the avatar once they see it working. Switch any month, no penalty."*
+### 6. What Changes (`WhatChangesSection.tsx`)
+- **Tag**: `What Changes`
+- **Heading**: `You Get The Reach Of A Daily Creator. On The Schedule Of A Busy Expert.`
+- **Four Transformation Cards**:
+  1. **Buyers Find You First**: Daily Posts Built Around The Questions Your Buyers Already Ask. When They're Ready, Your Name Is The One They Know.
+  2. **Built On What Already Works**: We Study What Is Winning Attention In Your Market Before We Write A Word. Then We Review Your Numbers Every Week And Make More Of What Works.
+  3. **Live In 7 Days**: No Three Month Setup. Your First Post Goes Live 7 Days After We Get Your Files. If It Doesn't, Your First Month Is Free.
+  4. **Almost Nothing On Your Side**: A Few Phone Clips When It Suits You. Or One Recording Session, Ever, With The AI Avatar. You Approve. We Handle Everything Else.
 
-### 7. Who We Serve (`#who-we-serve`)
-- **Heading**: `Built For People Who Sell On Trust`
-- **Audiences**:
-  - **Coaches**: Stay Visible Every Day Without Giving Up Your Coaching Hours. Choose The Content Engine, Or The Full Growth Engine If You Want Content And Ads Working As One Channel. (`See The Coach Offer →` -> `coach.html`)
-  - **Founders**: Build A Following On LinkedIn And X In Your Own Words, Without Spending Your Evenings Writing And Editing. (`See The Founder Offer →` -> `founder.html`)
+### 7. How You Show Up (`HowYouShowUpSection.tsx`)
+- **Tag**: `How You Show Up`
+- **Heading**: `Film When You Want To. Or Never Film Again.`
+- **Two Pathways**:
+  - **Real You**: Film Short Clips On Your Phone, Whenever It Fits Your Day. We Turn Them Into Scripted, Edited, Captioned Posts For Every Platform.
+    - *Your Real Face And Energy*
+    - *No Set, No Crew, No Editing*
+  - **AI Avatar**: Send Us One 5 Minute HD Video And One 10 To 15 Minute Voice Recording. Once. We Build A Clone Of Your Face And Voice, And Every Post Comes From It.
+    - *You Never Film Again*
+    - *You Approve A Test Video First, Or You Don't Pay*
+- **Switch Notice**: *Most Clients Start With Real You And Switch To The Avatar Once They See Results. Switch Any Month, No Penalty.*
 
-### 8. How We Work (`#how-we-work`)
-- **Heading**: `A Clear Path From First Call To Daily Posts`
-- **Four Stages**:
-  1. **Strategy Call**: Thirty Minutes To Map Your Goals, Audience, And Platforms. You Leave With A Written Game Plan.
-  2. **Content Blueprint**: We Study Your Market And Build Your Angles, Platforms, And Posting Volume.
-  3. **Production, Handled**: Done For You, Or Done With You If You Want Your Own Team To Run It.
-  4. **Double Down On Winners**: Every Week We Review The Numbers And Shape The Next Batch Around What Works.
+### 8. Who We Serve (`WhoWeServeSection.tsx` / `#who-we-serve`)
+- **Tag**: `Who We Serve`
+- **Heading**: `Two Kinds Of Experts. One Goal: Be The Obvious Choice.`
+- **Cards**:
+  - **Coaches**: Fill Your Calendar With People Who Already Trust You Before The First Call. Keep Your Hours For Coaching, Not Content. (`See The Coach Offer →` -> `coach.html`)
+  - **Founders**: Build A Following On LinkedIn And X That Brings In Customers, Hires, And Investors. In Your Words, Without Your Evenings. (`See The Founder Offer →` -> `founder.html`)
 
-### 9. About Us (`#about`)
+### 9. How It Works (`HowItWorksSection.tsx` / `#how-it-works`)
+- **Tag**: `How It Works`
+- **Heading**: `From First Call To Daily Posts In Four Steps`
+- **Steps**:
+  1. **Strategy Call**: Thirty Minutes On Your Goals, Your Buyers, And The Platforms That Matter. You Leave With A Written Game Plan, Whether Or Not We Work Together.
+  2. **Your Content Blueprint**: We Research Your Market And Map Your Angles, Platforms, And Posting Volume.
+  3. **We Produce, You Approve**: Done For You: Our Team Runs Production. Done With You: We Build The System And Train Your Team To Run It.
+  4. **Double Down On Winners**: A Weekly Report Shows What Worked. The Next Batch Is Built Around It.
+
+### 10. Our Promise (`OurPromiseSection.tsx`)
+- **Tag**: `Our Promise`
+- **Heading**: `Live In 7 Days, Or Your First Month Is Free.`
+- **Guarantees**:
+  - *Your First Post Goes Live 7 Days After We Get Your Footage Or Avatar Files. If It Doesn't, You Don't Pay For Month One.*
+  - *Choosing AI Avatar? You See A Test Video Before Anything Goes Live. If It Doesn't Look And Sound Like You, You Don't Pay.*
+
+### 11. About Us (`AboutSection.tsx` / `#about`)
+- **Tag**: `About Us`
 - **Heading**: `Small On Purpose`
-- **Narrative**: Four clients a quarter. Direct senior account execution.
-- **Principles**:
-  - **Your Voice First**: Everything Starts From How You Speak And What You Believe.
-  - **Fast To Start**: First Post Live In 7 Days, Or Your First Month Is Free.
-  - **Measured Weekly**: A Clear Report Shows What Worked And What Happens Next.
+- **Narrative**: Four clients a quarter, senior team runs your account.
+- **Founder Story Card**:
+  - `[Add Your Founder Story Here: Who You Are, Why You Started, And One Result You're Proud Of.]`
 
-### 10. Video Showcase (`#showcase`)
-- **Heading**: `See The Content We Post`
-- **Three Placeholders**:
-  - Video 1 (Founder Breakdown / Phone Capture)
-  - Video 2 (AI Avatar Synthetic Twin)
-  - Video 3 (High-Ticket Framework Conversion)
-- Interactive theatre modal with scrubber, sound toggle, and duration counter.
+### 12. Fit / Not A Fit (`FitAnalysisSection.tsx`)
+- **We're A Fit If**:
+  - You're A Coach Or Founder With A Real Offer
+  - You Want To Be Seen Every Day, Not Go Viral Once
+  - You'd Rather Spend Your Time On Clients Than Content
+- **We're Not A Fit If**:
+  - You Want Overnight Fame
+  - You Won’t Send The Clips Or Avatar Files We Ask For
+  - You Want The Cheapest Option, Not The Best One
 
-### 11. Final Call To Action (`#book`)
+### 13. Final Call To Action (`FinalCtaSection.tsx` / `#book`)
 - **Tag**: `Four Clients A Quarter`
-- **Heading**: `Ready To Be Seen Without The Work?`
-- **Subtext**: `Book A 30 Minute Strategy Call. You Leave With A Written Game Plan, Whether Or Not We Work Together.`
-- **CTA Button**: `Book A Strategy Call` (Configurable placeholder: `YOUR_BOOKING_LINK` in `portfolioData.ts`, includes interactive modal fallback).
+- **Heading**: `Three Months From Now, You'll Either Be Posting Every Day Or Still Planning To.`
+- **Subtext**: `Book A 30 Minute Strategy Call. You Leave With A Written Game Plan, Even If We Never Work Together.`
+- **Button**: `Book A Strategy Call` (Link: `YOUR_BOOKING_LINK` with fallback interactive intake modal)
+- **Notice**: `First Post Live In 7 Days, Or Your First Month Is Free.`
 
-### 12. Footer
+### 14. Footer (`Footer.tsx`)
 - Links: `Coaches` (`coach.html`) | `Founders` (`founder.html`)
-- `© [Current Year, Auto-Filled] AI Agentic Verse. All Rights Reserved.`
+- `© [Current Year, Auto-Filled By Script] AI Agentic Verse. All Rights Reserved.`
 
 ---
 
 ## ✦ Dedicated Standalone Landing Pages
-- `public/coach.html`: Dedicated deep-dive into The Coach Offer (Content Engine vs Full Growth Engine).
-- `public/founder.html`: Dedicated deep-dive into The Founder Offer (Voice Profile, Avatar vs Camera, Executive Inbound).
+- `public/coach.html`: Deep-dive offer page for high-ticket coaches.
+- `public/founder.html`: Deep-dive offer page for founders, operators & CEOs.

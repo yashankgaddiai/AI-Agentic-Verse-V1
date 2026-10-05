@@ -1,11 +1,12 @@
 /**
  * @file portfolioData.ts
- * Central data and content for AI Agentic Verse.
- * Matching the exact specification:
- * - Content and Growth, Run For You
- * - Real You & AI Avatar pipelines
- * - Offers for Coaches & Founders
- * - Transparent 4-step execution blueprint
+ * Central data file strictly matching the latest user specification:
+ * - Title Case with Brand Name Applied
+ * - Our Work · How It Works · Who We Serve · About · Book A Call
+ * - Client Video 1, 2, 3 with captions [Client Name, What They Do]
+ * - The Problem · What Changes · How You Show Up
+ * - Our Promise · About Us & Founder Story · Fit / Not A Fit
+ * - Final Call To Action & Footer
  */
 
 export interface ShowcaseVideo {
@@ -14,6 +15,9 @@ export interface ShowcaseVideo {
   category: string;
   duration: string;
   tag: string;
+  clientName: string;
+  clientRole: string;
+  captionPlaceholder: string;
   description: string;
   shortDescription?: string;
   thumbnailUrl: string;
@@ -38,16 +42,25 @@ export interface SiteContent {
     subtext: string;
     ctaButton: { label: string; href: string };
     scarcityNotice: string;
-    stats: { label: string; value: string }[];
   };
-  statement: string;
-  whatWeDo: {
+  ourWork: {
     tag: string;
     heading: string;
-    services: {
+    subheading: string;
+    videos: ShowcaseVideo[];
+  };
+  problem: {
+    tag: string;
+    heading: string;
+    paragraphs: string[];
+    punchline: string;
+  };
+  whatChanges: {
+    tag: string;
+    heading: string;
+    items: {
       title: string;
       description: string;
-      features: string[];
     }[];
   };
   howYouShowUp: {
@@ -55,10 +68,9 @@ export interface SiteContent {
     heading: string;
     options: {
       title: string;
-      badge: string;
       description: string;
-      requirements: string;
-      highlight: string;
+      bulletPoints: string[];
+      badge?: string;
     }[];
     note: string;
   };
@@ -67,36 +79,40 @@ export interface SiteContent {
     heading: string;
     audiences: {
       title: string;
-      tagline: string;
       description: string;
-      features: string[];
       linkText: string;
       linkUrl: string;
     }[];
   };
-  howWeWork: {
+  howItWorks: {
     tag: string;
     heading: string;
     steps: {
       number: string;
       title: string;
       description: string;
-      deliverable: string;
     }[];
+  };
+  ourPromise: {
+    tag: string;
+    heading: string;
+    paragraphs: string[];
   };
   aboutUs: {
     tag: string;
     heading: string;
     paragraphs: string[];
-    guarantees: {
-      title: string;
-      description: string;
-    }[];
+    founderStoryPlaceholder: string;
   };
-  videoShowcase: {
-    heading: string;
-    subheading: string;
-    videos: ShowcaseVideo[];
+  fitAnalysis: {
+    fit: {
+      title: string;
+      points: string[];
+    };
+    notFit: {
+      title: string;
+      points: string[];
+    };
   };
   finalCta: {
     tag: string;
@@ -104,10 +120,9 @@ export interface SiteContent {
     subtext: string;
     ctaButton: {
       label: string;
-      /* PLACEHOLDER: Insert your Calendly, Cal.com or custom booking link */
       url: string;
     };
-    notice: string;
+    guaranteeNotice: string;
   };
   footer: {
     offerLinks: { label: string; href: string }[];
@@ -117,18 +132,18 @@ export interface SiteContent {
 
 export const siteContent: SiteContent = {
   meta: {
-    title: 'AI Agentic Verse | Content, Built And Run For You',
+    title: 'AI Agentic Verse | Be The Expert Your Market Sees Every Day',
     description:
-      'We Build And Run Content For Coaches And Founders, In Their Own Voice, On Camera Or Through An AI Avatar.',
+      'For Coaches And Founders. We Turn What You Know Into Daily Content In Your Own Face And Voice. First Post Live In 7 Days, Or Your First Month Is Free.',
     ogImage: '/images/hero_verse_still.jpg',
   },
 
   navigation: {
     logo: 'AI Agentic Verse',
     links: [
-      { label: 'What We Do', href: '#what-we-do' },
+      { label: 'Our Work', href: '#our-work' },
+      { label: 'How It Works', href: '#how-it-works' },
       { label: 'Who We Serve', href: '#who-we-serve' },
-      { label: 'How We Work', href: '#how-we-work' },
       { label: 'About', href: '#about' },
     ],
     ctaButton: {
@@ -138,151 +153,194 @@ export const siteContent: SiteContent = {
   },
 
   hero: {
-    tag: 'Content And Growth, Run For You',
-    headline: 'Your Voice, Everywhere Your Clients Are Looking.',
+    tag: 'For Coaches And Founders Who Sell On Trust',
+    headline: 'Be The Expert Your Market Sees Every Day. Without Filming, Editing, Or Posting.',
     subtext:
-      'We Build And Run Your Content From Strategy To Daily Posts. Show Up On Camera When It Suits You, Or Let Your AI Avatar Do It. Your First Post Goes Live In 7 Days.',
+      'We Turn What You Already Know Into Daily Content, In Your Own Face And Voice. You Approve It. We Do The Rest. Your First Post Goes Live In 7 Days, Or Your First Month Is Free.',
     ctaButton: {
       label: 'Book A Strategy Call',
       href: '#book',
     },
-    scarcityNotice: 'We Work With Four Clients A Quarter. Spots Are Limited.',
-    stats: [
-      { label: 'Client Intake', value: '4 / Quarter' },
-      { label: 'First Post Live', value: '7 Days' },
-      { label: 'Time Investment', value: '0 - 1 hr/wk' },
+    scarcityNotice: 'We Take Four Clients A Quarter. Every Client Gets The Team That Sold Them.',
+  },
+
+  ourWork: {
+    tag: 'Our Work',
+    heading: "Don't Take Our Word For It. Watch It.",
+    subheading: 'Real Posts We Made For Real Clients. Same Voice. Same Face. None Of Their Time.',
+    videos: [
+      {
+        id: 'client-video-1',
+        title: 'Client Video 1',
+        category: 'Real You / Phone Capture',
+        duration: '01:18',
+        tag: 'Executive Retainer Callout',
+        clientName: 'Elena Vance',
+        clientRole: 'Executive Leadership Coach',
+        captionPlaceholder: '[Elena Vance, Executive Leadership Coach]',
+        description: 'Raw phone thought converted into a high-authority LinkedIn and Instagram short.',
+        shortDescription: 'Raw phone thought converted into a high-authority LinkedIn and Instagram short.',
+        thumbnailUrl: '/images/work_chrono_pulse.jpg',
+        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+        year: '2026',
+      },
+      {
+        id: 'client-video-2',
+        title: 'Client Video 2',
+        category: 'AI Avatar Twin',
+        duration: '00:54',
+        tag: 'Zero Studio Filming',
+        clientName: 'David Sterling',
+        clientRole: 'B2B Enterprise SaaS Founder',
+        captionPlaceholder: '[David Sterling, B2B Enterprise SaaS Founder]',
+        description: 'Autonomous synthetic clone generated from a single calibration recording.',
+        shortDescription: 'Autonomous synthetic clone generated from a single calibration recording.',
+        thumbnailUrl: '/images/hero_verse_still.jpg',
+        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+        year: '2026',
+      },
+      {
+        id: 'client-video-3',
+        title: 'Client Video 3',
+        category: 'Conversion Short',
+        duration: '01:32',
+        tag: 'Inbound Pipeline Builder',
+        clientName: 'Maya Lin',
+        clientRole: 'High-Ticket Sales Consultant',
+        captionPlaceholder: '[Maya Lin, High-Ticket Sales Consultant]',
+        description: 'Contrarian industry breakdown engineered to drive calendar booking clicks.',
+        shortDescription: 'Contrarian industry breakdown engineered to drive calendar booking clicks.',
+        thumbnailUrl: '/images/work_neural_meta.jpg',
+        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+        year: '2026',
+      },
     ],
   },
 
-  statement:
-    "Great Experts Stay Invisible For One Reason: Content Takes Time They Don't Have. We Exist To Remove That Cost, So Your Expertise Gets Seen Without Costing You Your Week.",
+  problem: {
+    tag: 'The Problem',
+    heading: "The Best Expert Doesn't Win. The Most Visible One Does.",
+    paragraphs: [
+      "You're Better At What You Do Than Most People Posting About It. But They Show Up Every Day, And You Don't. So When A Buyer Is Ready, They Think Of Them First.",
+      "It's Not That You Don't Know Content Works. It's That Content Eats Your Week. Scripts, Filming, Editing, Captions, Posting. You Keep It Up For Two Weeks. Then Client Work Takes Over And Your Page Goes Quiet Again.",
+    ],
+    punchline:
+      'Every Quiet Week Is A Week Someone Less Skilled Gets The Client Who Should Have Been Yours.',
+  },
 
-  whatWeDo: {
-    tag: 'What We Do',
-    heading: 'One Team For Everything Between Your Idea And Your Audience',
-    services: [
+  whatChanges: {
+    tag: 'What Changes',
+    heading: 'You Get The Reach Of A Daily Creator. On The Schedule Of A Busy Expert.',
+    items: [
       {
-        title: 'Strategy',
+        title: 'Buyers Find You First',
         description:
-          'Hooks, Story Angles, And Content Pillars Built From Your Own Ideas And From What Is Already Winning Attention In Your Market.',
-        features: [
-          'High-converting hook archives',
-          'Market gap & competitor analysis',
-          'Tailored personal voice blueprint',
-        ],
+          "Daily Posts Built Around The Questions Your Buyers Already Ask. When They're Ready, Your Name Is The One They Know.",
       },
       {
-        title: 'Production',
+        title: 'Built On What Already Works',
         description:
-          'Scripts In Your Voice, Full Editing, Captions, And Repurposing Across Every Platform That Matters To You.',
-        features: [
-          'Authentic speech pacing & typography',
-          'Short-form reels, shorts & TikToks',
-          'Long-form LinkedIn & X text carousels',
-        ],
+          'We Study What Is Winning Attention In Your Market Before We Write A Word. Then We Review Your Numbers Every Week And Make More Of What Works.',
       },
       {
-        title: 'Growth',
+        title: 'Live In 7 Days',
         description:
-          'Social Media Management And Paid Ads That Turn Steady Content Into A Real Client Channel, With One Weekly Report.',
-        features: [
-          'Omnichannel scheduling & daily posting',
-          'Direct response conversion retargeting',
-          'Single transparent weekly metric briefing',
-        ],
+          "No Three Month Setup. Your First Post Goes Live 7 Days After We Get Your Files. If It Doesn't, Your First Month Is Free.",
+      },
+      {
+        title: 'Almost Nothing On Your Side',
+        description:
+          'A Few Phone Clips When It Suits You. Or One Recording Session, Ever, With The AI Avatar. You Approve. We Handle Everything Else.',
       },
     ],
   },
 
   howYouShowUp: {
     tag: 'How You Show Up',
-    heading: 'Two Ways To Be On Camera. Or Never Be.',
+    heading: 'Film When You Want To. Or Never Film Again.',
     options: [
       {
         title: 'Real You',
         badge: 'Film On Your Phone',
         description:
-          'Film Clips On Your Phone Whenever It Fits Your Day. We Turn The Footage Into Daily Posts.',
-        requirements: 'Casual phone recordings whenever convenient',
-        highlight: 'Zero equipment needed. Speak freely; our editors polish the narrative.',
+          'Film Short Clips On Your Phone, Whenever It Fits Your Day. We Turn Them Into Scripted, Edited, Captioned Posts For Every Platform.',
+        bulletPoints: [
+          'Your Real Face And Energy',
+          'No Set, No Crew, No Editing',
+        ],
       },
       {
         title: 'AI Avatar',
         badge: 'Film Once, Run Forever',
         description:
-          'Send One HD Video And One Voice Recording, Once. We Build A Clone Of Your Face And Voice, And Every Post After That Comes From Your Avatar. You Never Film Again.',
-        requirements: '1 HD studio capture + 3-minute voice sample',
-        highlight: 'Indistinguishable visual sync. 100% autonomous daily production.',
+          'Send Us One 5 Minute HD Video And One 10 To 15 Minute Voice Recording. Once. We Build A Clone Of Your Face And Voice, And Every Post Comes From It.',
+        bulletPoints: [
+          'You Never Film Again',
+          "You Approve A Test Video First, Or You Don't Pay",
+        ],
       },
     ],
-    note: 'Most Clients Start With Their Own Footage And Move To The Avatar Once They See It Working. Switch Any Month, No Penalty.',
+    note: 'Most Clients Start With Real You And Switch To The Avatar Once They See Results. Switch Any Month, No Penalty.',
   },
 
   whoWeServe: {
     tag: 'Who We Serve',
-    heading: 'Built For People Who Sell On Trust',
+    heading: 'Two Kinds Of Experts. One Goal: Be The Obvious Choice.',
     audiences: [
       {
         title: 'Coaches',
-        tagline: 'High-Ticket Mentors & Executive Advisors',
         description:
-          'Stay Visible Every Day Without Giving Up Your Coaching Hours. Choose The Content Engine, Or The Full Growth Engine If You Want Content And Ads Working As One Channel.',
-        features: [
-          'Protects all client delivery calendar blocks',
-          'Positions your frameworks as industry benchmarks',
-          'Automated lead qualification funnel integration',
-        ],
+          'Fill Your Calendar With People Who Already Trust You Before The First Call. Keep Your Hours For Coaching, Not Content.',
         linkText: 'See The Coach Offer →',
         linkUrl: '/coach.html',
       },
       {
         title: 'Founders',
-        tagline: 'B2B CEOs, Operators & Tech Innovators',
         description:
-          'Build A Following On LinkedIn And X In Your Own Words, Without Spending Your Evenings Writing And Editing.',
-        features: [
-          'Ghostwritten founder thoughts & company vision',
-          'Authority generation for hiring & fundraising',
-          'Repurposes podcast appearances & investor updates',
-        ],
+          'Build A Following On LinkedIn And X That Brings In Customers, Hires, And Investors. In Your Words, Without Your Evenings.',
         linkText: 'See The Founder Offer →',
         linkUrl: '/founder.html',
       },
     ],
   },
 
-  howWeWork: {
-    tag: 'How We Work',
-    heading: 'A Clear Path From First Call To Daily Posts',
+  howItWorks: {
+    tag: 'How It Works',
+    heading: 'From First Call To Daily Posts In Four Steps',
     steps: [
       {
         number: '01',
         title: 'Strategy Call',
         description:
-          'Thirty Minutes To Map Your Goals, Audience, And Platforms. You Leave With A Written Game Plan.',
-        deliverable: 'Tailored 90-Day Content Roadmap',
+          'Thirty Minutes On Your Goals, Your Buyers, And The Platforms That Matter. You Leave With A Written Game Plan, Whether Or Not We Work Together.',
       },
       {
         number: '02',
-        title: 'Content Blueprint',
+        title: 'Your Content Blueprint',
         description:
-          'We Study Your Market And Build Your Angles, Platforms, And Posting Volume.',
-        deliverable: 'Voice Profile & Pillar Matrix',
+          'We Research Your Market And Map Your Angles, Platforms, And Posting Volume.',
       },
       {
         number: '03',
-        title: 'Production, Handled',
+        title: 'We Produce, You Approve',
         description:
-          'Done For You, Or Done With You If You Want Your Own Team To Run It.',
-        deliverable: 'First Batch Scripted, Cut & Approved',
+          'Done For You: Our Team Runs Production. Done With You: We Build The System And Train Your Team To Run It.',
       },
       {
         number: '04',
         title: 'Double Down On Winners',
         description:
-          'Every Week We Review The Numbers And Shape The Next Batch Around What Works.',
-        deliverable: 'Weekly Metric Review & Scaling Tweaks',
+          'A Weekly Report Shows What Worked. The Next Batch Is Built Around It.',
       },
+    ],
+  },
+
+  ourPromise: {
+    tag: 'Our Promise',
+    heading: 'Live In 7 Days, Or Your First Month Is Free.',
+    paragraphs: [
+      "Your First Post Goes Live 7 Days After We Get Your Footage Or Avatar Files. If It Doesn't, You Don't Pay For Month One.",
+      "Choosing AI Avatar? You See A Test Video Before Anything Goes Live. If It Doesn't Look And Sound Like You, You Don't Pay.",
     ],
   },
 
@@ -290,77 +348,44 @@ export const siteContent: SiteContent = {
     tag: 'About Us',
     heading: 'Small On Purpose',
     paragraphs: [
-      'We Are A Content And Growth Team For Coaches And Founders. We Believe Your Face, Voice, And Ideas Are Your Strongest Asset, And That Sharing Them Daily Should Not Take Over Your Life.',
-      'That Is Why We Keep The Client List Small. We Take On Four Clients A Quarter, And The Senior Team You Meet On The First Call Is The Team That Runs Your Account.',
-      'That Is Also Why We Offer The AI Avatar. It Gives You A Way To Stay Visible Every Single Day, In Your Own Face And Voice, Without Filming Again.',
+      'We’re A Content And Growth Team For Coaches And Founders. We Started For One Reason: The Best Experts We Knew Were The Least Visible. Not Because They Had Nothing To Say, But Because They Had No Time To Say It.',
+      'So We Built A Team That Takes The Whole Job Off Your Plate. Strategy, Scripts, Editing, Posting, And Reporting. And We Built The AI Avatar So Being Visible Every Day No Longer Depends On Being On Camera Every Day.',
+      'We’d Rather Have Four Clients Who Win Than Forty Who Wait. That’s Why We Take Four A Quarter, And Why The Team On Your First Call Is The Team On Your Account.',
     ],
-    guarantees: [
-      {
-        title: 'Your Voice First',
-        description: 'Everything Starts From How You Speak And What You Believe.',
-      },
-      {
-        title: 'Fast To Start',
-        description: 'First Post Live In 7 Days, Or Your First Month Is Free.',
-      },
-      {
-        title: 'Measured Weekly',
-        description: 'A Clear Report Shows What Worked And What Happens Next.',
-      },
-    ],
+    founderStoryPlaceholder:
+      "[Add Your Founder Story Here: Who You Are, Why You Started, And One Result You're Proud Of.]",
   },
 
-  videoShowcase: {
-    heading: 'See The Content We Post',
-    subheading: 'High-retention shorts, thought leadership narratives, and synthetic avatar releases.',
-    videos: [
-      {
-        id: 'video-1',
-        title: 'Video 1: Founder Breakdown',
-        category: 'Camera & Phone Capture',
-        duration: '01:24',
-        tag: 'High-Retention Hook',
-        description:
-          'Clean, organic phone capture transformed with kinetic captioning, B-roll rhythm, and authority framing.',
-        thumbnailUrl: '/images/work_chrono_pulse.jpg',
-        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-      },
-      {
-        id: 'video-2',
-        title: 'Video 2: Photorealistic AI Avatar',
-        category: 'Synthetic Twin Production',
-        duration: '00:58',
-        tag: 'Zero Studio Filming',
-        description:
-          '100% generated from an AI clone trained on a single recording. Scripted, voiced, and published without the founder on set.',
-        thumbnailUrl: '/images/hero_verse_still.jpg',
-        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-      },
-      {
-        id: 'video-3',
-        title: 'Video 3: High-Ticket Framework Breakdown',
-        category: 'Conversion Short',
-        duration: '01:45',
-        tag: 'Inbound Client Generation',
-        description:
-          'Strategic breakdown of an advisory methodology engineered to drive direct DMs and calendar bookings.',
-        thumbnailUrl: '/images/work_neural_meta.jpg',
-        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-      },
-    ],
+  fitAnalysis: {
+    fit: {
+      title: "We're A Fit If",
+      points: [
+        "You're A Coach Or Founder With A Real Offer",
+        'You Want To Be Seen Every Day, Not Go Viral Once',
+        "You'd Rather Spend Your Time On Clients Than Content",
+      ],
+    },
+    notFit: {
+      title: "We're Not A Fit If",
+      points: [
+        'You Want Overnight Fame',
+        'You Won’t Send The Clips Or Avatar Files We Ask For',
+        'You Want The Cheapest Option, Not The Best One',
+      ],
+    },
   },
 
   finalCta: {
     tag: 'Four Clients A Quarter',
-    heading: 'Ready To Be Seen Without The Work?',
+    heading: "Three Months From Now, You'll Either Be Posting Every Day Or Still Planning To.",
     subtext:
-      'Book A 30 Minute Strategy Call. You Leave With A Written Game Plan, Whether Or Not We Work Together.',
+      'Book A 30 Minute Strategy Call. You Leave With A Written Game Plan, Even If We Never Work Together.',
     ctaButton: {
       label: 'Book A Strategy Call',
       /* PLACEHOLDER: Replace YOUR_BOOKING_LINK with your Calendly / Cal.com link */
       url: 'YOUR_BOOKING_LINK',
     },
-    notice: 'Zero high-pressure pitch. Walk away with complete strategy clarity.',
+    guaranteeNotice: 'First Post Live In 7 Days, Or Your First Month Is Free.',
   },
 
   footer: {
@@ -380,16 +405,8 @@ export const portfolioContent = {
     name: siteContent.navigation.logo,
     logoInitials: 'AV',
   },
-  projects: siteContent.videoShowcase.videos.map((v) => ({
-    ...v,
-    shortDescription: v.description,
-    year: '2026',
-  })),
-  featuredProject: {
-    ...siteContent.videoShowcase.videos[0],
-    shortDescription: siteContent.videoShowcase.videos[0].description,
-    year: '2026',
-  },
+  projects: siteContent.ourWork.videos,
+  featuredProject: siteContent.ourWork.videos[0],
   contact: {
     email: 'hello@aiagenticverse.com',
     responseWindow: 'Replies within 24 hours on business days',
