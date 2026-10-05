@@ -1,0 +1,204 @@
+/**
+ * @file FinalCtaSection.tsx
+ * Final Call To Action section matching the brief:
+ * - Tag: Four Clients A Quarter
+ * - Heading: Ready To Be Seen Without The Work?
+ * - Subtext: Book A 30 Minute Strategy Call. You Leave With A Written Game Plan, Whether Or Not We Work Together.
+ * - Button: Book A Strategy Call (Placeholder link: YOUR_BOOKING_LINK)
+ */
+
+import React, { useState } from 'react';
+import { ArrowRight, Calendar, CheckCircle2, Clock, ShieldCheck, Copy, Check } from 'lucide-react';
+import { siteContent } from '../data/portfolioData';
+import { ScrollReveal } from './ScrollReveal';
+
+export const FinalCtaSection: React.FC = () => {
+  const { finalCta } = siteContent;
+  const [showModal, setShowModal] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleBookingClick = (e: React.MouseEvent) => {
+    // If user has not replaced placeholder 'YOUR_BOOKING_LINK', open the internal intake modal
+    if (finalCta.ctaButton.url === 'YOUR_BOOKING_LINK' || !finalCta.ctaButton.url.startsWith('http')) {
+      e.preventDefault();
+      setShowModal(true);
+    }
+  };
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href + '#book');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <section
+      id="book"
+      aria-label="Final Strategy Call Booking"
+      className="py-20 md:py-[100px] border-b border-[rgba(26,24,21,0.12)] bg-[#FBFAF8] relative overflow-hidden scroll-mt-20"
+    >
+      {/* Background glow accent */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[340px] -z-0 opacity-60"
+        style={{
+          background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(194, 90, 60, 0.16) 0%, transparent 70%)',
+        }}
+      />
+
+      <div className="max-w-4xl mx-auto px-6 sm:px-8 md:px-[56px] text-center relative z-10 space-y-8">
+        <ScrollReveal>
+          {/* Tag: Four Clients A Quarter */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[rgba(194,90,60,0.4)] bg-[#C25A3C]/[0.08] text-[#C25A3C] text-[12px] font-semibold uppercase tracking-[0.14em]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C25A3C] animate-pulse" />
+            <span>{finalCta.tag}</span>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={100}>
+          {/* Heading */}
+          <h2 className="font-normal text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.025em] text-[#1A1815] [text-wrap:pretty]">
+            {finalCta.heading}
+          </h2>
+        </ScrollReveal>
+
+        <ScrollReveal delay={200}>
+          {/* Subtext */}
+          <p className="font-normal text-[16px] sm:text-[18px] leading-[1.68] text-[#5F5A52] max-w-2xl mx-auto">
+            {finalCta.subtext}
+          </p>
+        </ScrollReveal>
+
+        <ScrollReveal delay={300}>
+          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            {/* Primary Booking Button */}
+            <a
+              href={finalCta.ctaButton.url}
+              onClick={handleBookingClick}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-semibold text-[15px] bg-[#C25A3C] text-[#FBFAF8] rounded-[8.5px] px-[32px] py-[16px] hover:bg-[#A94B30] transition-colors duration-150 shadow-md group"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>{finalCta.ctaButton.label}</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </a>
+
+            {/* Share / Copy quick link button */}
+            <button
+              onClick={handleCopyLink}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-semibold text-[14px] bg-[#FFFFFF] text-[#1A1815] border border-[rgba(26,24,21,0.16)] rounded-[8.5px] px-[22px] py-[15px] hover:border-[#1A1815] transition-colors"
+            >
+              {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4 text-[#857F74]" />}
+              <span>{copied ? 'Link Copied' : 'Share Booking Link'}</span>
+            </button>
+          </div>
+
+          <div className="pt-6 flex flex-wrap items-center justify-center gap-y-2 gap-x-8 text-[13px] text-[#6E685E]">
+            <div className="flex items-center gap-1.5">
+              <Clock className="w-4 h-4 text-[#C25A3C]" />
+              <span>30 Minutes Duration</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-[#C25A3C]" />
+              <span>Written Game Plan Included</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-[#C25A3C]" />
+              <span>Zero Pitch Guarantee</span>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+
+      {/* Fallback Intake & Strategy Scheduler Modal */}
+      {showModal && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-200"
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            className="bg-[#FFFFFF] rounded-[16px] border border-[rgba(26,24,21,0.14)] p-8 max-w-lg w-full space-y-6 shadow-2xl relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="space-y-2">
+              <span className="text-[12px] font-semibold uppercase tracking-wider text-[#C25A3C]">
+                30-Minute Strategy Session
+              </span>
+              <h3 className="text-[24px] font-semibold text-[#1A1815]">
+                Schedule Your Call
+              </h3>
+              <p className="text-[14.5px] text-[#5F5A52]">
+                Leave with a complete content roadmap for your coaching or founder brand.
+              </p>
+            </div>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert('Thank you! Strategy call request received. Our senior team will reach out within 24 hours with your invite.');
+                setShowModal(false);
+              }}
+              className="space-y-4"
+            >
+              <div>
+                <label className="block text-[13px] font-medium text-[#1A1815] mb-1">
+                  Your Full Name
+                </label>
+                <input
+                  required
+                  type="text"
+                  placeholder="e.g. Alex Rivera"
+                  className="w-full px-3.5 py-2.5 rounded-[8px] border border-[rgba(26,24,21,0.18)] bg-[#FBFAF8] text-[14px] text-[#1A1815] focus:outline-none focus:border-[#C25A3C]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[13px] font-medium text-[#1A1815] mb-1">
+                  Work Email
+                </label>
+                <input
+                  required
+                  type="email"
+                  placeholder="alex@company.com"
+                  className="w-full px-3.5 py-2.5 rounded-[8px] border border-[rgba(26,24,21,0.18)] bg-[#FBFAF8] text-[14px] text-[#1A1815] focus:outline-none focus:border-[#C25A3C]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[13px] font-medium text-[#1A1815] mb-1">
+                  I am a...
+                </label>
+                <select className="w-full px-3.5 py-2.5 rounded-[8px] border border-[rgba(26,24,21,0.18)] bg-[#FBFAF8] text-[14px] text-[#1A1815] focus:outline-none focus:border-[#C25A3C]">
+                  <option value="coach">High-Ticket / Executive Coach</option>
+                  <option value="founder">Company Founder / CEO</option>
+                  <option value="other">Creator / Agency Operator</option>
+                </select>
+              </div>
+
+              <div className="pt-2 flex items-center justify-end gap-3">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="px-4 py-2.5 rounded-[8px] text-[14px] font-medium text-[#5F5A52] hover:text-[#1A1815]"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-6 py-2.5 rounded-[8px] text-[14px] font-semibold bg-[#C25A3C] text-white hover:bg-[#A94B30] transition-colors"
+                >
+                  Confirm Strategy Call
+                </button>
+              </div>
+            </form>
+
+            <div className="pt-2 text-center text-[12px] text-[#857F74]">
+              Developer Note: Set <code className="bg-[#F4F1EC] px-1 py-0.5 rounded text-[#C25A3C]">finalCta.ctaButton.url</code> in <code className="bg-[#F4F1EC] px-1 py-0.5 rounded text-[#1A1815]">portfolioData.ts</code> to link directly to your Calendly or Cal.com.
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};

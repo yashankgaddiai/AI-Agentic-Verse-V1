@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-page: #FBFAF8;
+  --color-band: #F4F1EC;
+  --color-surface: #FFFFFF;
+
+  --color-terracotta: #C25A3C;
+  --color-terracotta-hover: #A94B30;
+  --color-terracotta-tint: #FDF3EE;
+
+  --color-text-primary: #1A1815;
+  --color-text-secondary: #37332C;
+  --color-text-body: #5F5A52;
+  --color-text-muted: #6E685E;
+  --color-text-caption: #857F74;
+  --color-text-caption-alt: #8A8479;
+  --color-text-placeholder: #A39C90;
+
+  --color-border-hairline: rgba(26, 24, 21, 0.12);
+  --color-border-card: rgba(26, 24, 21, 0.14);
+}
+
+body {
+  background-color: var(--color-page);
+  color: var(--color-text-primary);
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 400;
+  line-height: 1.68;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 52px;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: pretty;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+    line-height: 1.14;
+  }
+  h2 {
+    font-size: 28px;
+    line-height: 1.22;
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid #C25A3C;
+  outline-offset: 3px;
+}

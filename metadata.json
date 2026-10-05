@@ -1,0 +1,7 @@
+{
+  "name": "AI Agentic Verse | Content, Built And Run For You",
+  "description": "We Build And Run Content For Coaches And Founders, In Their Own Voice, On Camera Or Through An AI Avatar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
