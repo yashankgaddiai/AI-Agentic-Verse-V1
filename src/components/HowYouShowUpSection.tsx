@@ -12,6 +12,7 @@ import React from 'react';
 import { Smartphone, Bot, Check, ArrowRight } from 'lucide-react';
 import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
+import { SectionHeadingReveal } from './SectionTransition';
 import { TitleReveal } from './TitleReveal';
 
 export const HowYouShowUpSection: React.FC = () => {
@@ -25,12 +26,10 @@ export const HowYouShowUpSection: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] space-y-12 md:space-y-16">
         {/* Section Header */}
-        <div className="max-w-3xl space-y-3">
-          <ScrollReveal>
-            <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
-              {howYouShowUp.tag}
-            </span>
-          </ScrollReveal>
+        <SectionHeadingReveal className="max-w-3xl space-y-3">
+          <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
+            {howYouShowUp.tag}
+          </span>
 
           <TitleReveal
             as="h2"
@@ -40,7 +39,7 @@ export const HowYouShowUpSection: React.FC = () => {
             Film When You Want To.{' '}
             <span className="text-[#6E685E]">Or Never Film Again.</span>
           </TitleReveal>
-        </div>
+        </SectionHeadingReveal>
 
         {/* Two Options Side by Side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">

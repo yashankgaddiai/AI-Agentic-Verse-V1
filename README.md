@@ -11,10 +11,11 @@ For Coaches And Founders. We Turn What You Know Into Daily Content In Your Own F
 - **Description**: `For Coaches And Founders. We Turn What You Know Into Daily Content In Your Own Face And Voice. First Post Live In 7 Days, Or Your First Month Is Free.`
 - Dynamically managed via `SEO.tsx` and synchronized in `index.html` and `metadata.json`.
 
-### 1.1 Editorial Motion & Subtle Title Reveal (`TitleReveal.tsx`)
-- All major section headlines and titles feature an editorial mask reveal animation powered by Framer Motion.
-- Uses an upward mask glide (`y: 40% -> 0`), gentle blur-dissolve (`blur(4px) -> blur(0px)`), and a smooth Apple/Linear deceleration cubic-bezier (`[0.16, 1, 0.3, 1]`) triggered via viewport scroll-spy.
-- Fully honors `prefers-reduced-motion` through `useReducedMotion()`.
+### 1.1 Cohesive Section & Heading Reveal System (`SectionTransition.tsx` & `TitleReveal.tsx`)
+- **SectionTransition**: Encapsulates sections with an exact 800ms slide-up and fade-in entry (`opacity: 0 -> 1`, `y: 20 -> 0`) using the brand's unified editorial cubic-bezier easing `[0.22, 1, 0.36, 1]`.
+- **SectionHeadingReveal / TitleReveal**: Dedicated Framer Motion components that wrap section headings and eyebrow tags to apply a coordinated subtle slide-up and fade-in reveal as they enter the viewport (`margin: '0px 0px -40px 0px'`).
+- **Complete Consistency**: Every section heading, eyebrow tag, and content block adheres to identical easing curve (`EDITORIAL_EASING`), duration (`0.8s`), and viewport threshold triggers.
+- **Accessibility**: Automatically falls back to instantaneous rendering when `prefers-reduced-motion` is detected via `useReducedMotion()`.
 
 ### 2. Navigation (`Navigation.tsx`)
 - **Logo**: `AI Agentic Verse` with official brand mark (`src/assets/images/logo.png`)

@@ -10,6 +10,7 @@ import React from 'react';
 import { AlertCircle, Clock, TrendingDown } from 'lucide-react';
 import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
+import { SectionHeadingReveal } from './SectionTransition';
 import { TitleReveal } from './TitleReveal';
 
 export const TheProblemSection: React.FC = () => {
@@ -22,12 +23,10 @@ export const TheProblemSection: React.FC = () => {
     >
       <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-[56px] space-y-12">
         {/* Section Header */}
-        <div className="space-y-3 text-center max-w-3xl mx-auto">
-          <ScrollReveal>
-            <span className="inline-block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
-              {problem.tag}
-            </span>
-          </ScrollReveal>
+        <SectionHeadingReveal className="space-y-3 text-center max-w-3xl mx-auto">
+          <span className="inline-block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
+            {problem.tag}
+          </span>
 
           <TitleReveal
             as="h2"
@@ -39,7 +38,7 @@ export const TheProblemSection: React.FC = () => {
               The Most Visible One Does.
             </span>
           </TitleReveal>
-        </div>
+        </SectionHeadingReveal>
 
         {/* Narrative Paragraphs */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

@@ -9,6 +9,7 @@ import React from 'react';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
+import { SectionHeadingReveal } from './SectionTransition';
 import { TitleReveal } from './TitleReveal';
 
 export const FitAnalysisSection: React.FC = () => {
@@ -21,12 +22,10 @@ export const FitAnalysisSection: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] space-y-12 md:space-y-16">
         {/* Section Header */}
-        <div className="max-w-3xl space-y-3">
-          <ScrollReveal>
-            <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
-              Mutual Selection
-            </span>
-          </ScrollReveal>
+        <SectionHeadingReveal className="max-w-3xl space-y-3">
+          <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
+            Mutual Selection
+          </span>
 
           <TitleReveal
             as="h2"
@@ -39,7 +38,7 @@ export const FitAnalysisSection: React.FC = () => {
           <p className="font-normal text-[16px] text-[#5F5A52] leading-[1.68]">
             We work with four clients per quarter. That requires complete alignment on standards, goals, and communication.
           </p>
-        </div>
+        </SectionHeadingReveal>
 
         {/* Two Columns Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">

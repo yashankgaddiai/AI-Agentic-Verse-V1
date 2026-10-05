@@ -12,7 +12,7 @@ import { Play, ArrowUpRight, User } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { siteContent, ShowcaseVideo } from '../data/portfolioData';
-import { ScrollReveal } from './ScrollReveal';
+import { SectionHeadingReveal } from './SectionTransition';
 import { TitleReveal } from './TitleReveal';
 
 interface OurWorkSectionProps {
@@ -54,25 +54,23 @@ export const OurWorkSection: React.FC<OurWorkSectionProps> = ({ onSelectVideo })
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] space-y-12 md:space-y-16">
         {/* Section Header */}
-        <ScrollReveal>
-          <div className="max-w-3xl space-y-3">
-            <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
-              {ourWork.tag}
-            </span>
+        <SectionHeadingReveal className="max-w-3xl space-y-3">
+          <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
+            {ourWork.tag}
+          </span>
 
-            <TitleReveal
-              as="h2"
-              delay={0.08}
-              className="font-normal text-[28px] sm:text-[34px] lg:text-[40px] leading-[1.15] tracking-[-0.02em] text-[#1A1815] [text-wrap:pretty]"
-            >
-              {ourWork.heading}
-            </TitleReveal>
+          <TitleReveal
+            as="h2"
+            delay={0.08}
+            className="font-normal text-[28px] sm:text-[34px] lg:text-[40px] leading-[1.15] tracking-[-0.02em] text-[#1A1815] [text-wrap:pretty]"
+          >
+            {ourWork.heading}
+          </TitleReveal>
 
-            <p className="font-normal text-[16px] text-[#5F5A52] leading-[1.68]">
-              {ourWork.subheading}
-            </p>
-          </div>
-        </ScrollReveal>
+          <p className="font-normal text-[16px] text-[#5F5A52] leading-[1.68]">
+            {ourWork.subheading}
+          </p>
+        </SectionHeadingReveal>
 
         {/* 3 Client Video Cards */}
         <motion.div

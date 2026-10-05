@@ -10,6 +10,7 @@ import React from 'react';
 import { Compass, TrendingUp, Zap, Sparkles } from 'lucide-react';
 import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
+import { SectionHeadingReveal } from './SectionTransition';
 import { TitleReveal } from './TitleReveal';
 
 export const WhatChangesSection: React.FC = () => {
@@ -29,12 +30,10 @@ export const WhatChangesSection: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] space-y-12 md:space-y-16">
         {/* Section Header */}
-        <div className="max-w-3xl space-y-3">
-          <ScrollReveal>
-            <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
-              {whatChanges.tag}
-            </span>
-          </ScrollReveal>
+        <SectionHeadingReveal className="max-w-3xl space-y-3">
+          <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
+            {whatChanges.tag}
+          </span>
 
           <TitleReveal
             as="h2"
@@ -46,7 +45,7 @@ export const WhatChangesSection: React.FC = () => {
               On The Schedule Of A Busy Expert.
             </span>
           </TitleReveal>
-        </div>
+        </SectionHeadingReveal>
 
         {/* 4 Transformation Pillars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
