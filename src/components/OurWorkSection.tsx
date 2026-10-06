@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { Play, ArrowUpRight, User } from 'lucide-react';
+import { Play } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { siteContent, ShowcaseVideo } from '../data/portfolioData';
@@ -50,11 +50,11 @@ export const OurWorkSection: React.FC<OurWorkSectionProps> = ({ onSelectVideo })
     <section
       id="our-work"
       aria-label="Our Work"
-      className="py-16 md:py-[88px] border-b border-[rgba(26,24,21,0.12)] bg-[#FBFAF8] scroll-mt-20"
+      className="py-16 md:py-24 border-b border-[rgba(26,24,21,0.12)] bg-[#FBFAF8] scroll-mt-20"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] space-y-12 md:space-y-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-14 space-y-12 md:space-y-16">
         {/* Section Header */}
-        <SectionHeadingReveal className="max-w-3xl space-y-3">
+        <SectionHeadingReveal className="max-w-3xl space-y-4">
           <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
             {ourWork.tag}
           </span>
@@ -78,7 +78,7 @@ export const OurWorkSection: React.FC<OurWorkSectionProps> = ({ onSelectVideo })
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {ourWork.videos.map((video) => (
             <motion.article
@@ -103,23 +103,22 @@ export const OurWorkSection: React.FC<OurWorkSectionProps> = ({ onSelectVideo })
                 </div>
 
                 {/* Duration Badge */}
-                <div className="absolute bottom-3 right-3 px-2 py-0.5 rounded-[4px] bg-black/80 text-[#FBFAF8] font-medium text-[11.5px] tabular-nums">
+                <div className="absolute bottom-4 right-4 px-2 py-0.5 rounded-[4px] bg-black/80 text-[#FBFAF8] font-medium text-[11.5px] tabular-nums">
                   {video.duration}
                 </div>
 
                 {/* Category / Pipeline Tag */}
-                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-[6px] bg-black/75 backdrop-blur-xs text-[#FBFAF8] font-semibold text-[10.5px] uppercase tracking-wider">
+                <div className="absolute top-4 left-4 px-2.5 py-1 rounded-[6px] bg-black/75 backdrop-blur-xs text-[#FBFAF8] font-semibold text-[10.5px] uppercase tracking-wider">
                   {video.category}
                 </div>
               </div>
 
               {/* Card Body */}
               <div className="p-6 bg-[#FFFFFF] flex flex-col flex-1 justify-between gap-4">
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {/* Client Name & Role Caption specified in user prompt */}
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[6px] bg-[#F4F1EC] border border-[rgba(26,24,21,0.08)] text-[12px] font-semibold text-[#1A1815]">
-                    <User className="w-3.5 h-3.5 text-[#C25A3C]" />
-                    <span>Caption: {video.captionPlaceholder}</span>
+                  <div className="inline-flex items-center px-2.5 py-1 rounded-[6px] bg-[#F4F1EC] border border-[rgba(26,24,21,0.08)] text-[12px] font-semibold text-[#1A1815]">
+                    Caption: {video.captionPlaceholder}
                   </div>
 
                   <h3 className="font-semibold text-[19px] leading-[1.3] text-[#1A1815] group-hover:text-[#C25A3C] transition-colors">
@@ -134,9 +133,8 @@ export const OurWorkSection: React.FC<OurWorkSectionProps> = ({ onSelectVideo })
                 {/* Action Row */}
                 <div className="pt-4 border-t border-[rgba(26,24,21,0.08)] flex items-center justify-between font-medium text-[13px]">
                   <span className="text-[#857F74]">Watch Client Post</span>
-                  <span className="inline-flex items-center gap-1 text-[#1A1815] group-hover:text-[#C25A3C] transition-colors">
+                  <span className="text-[#1A1815] group-hover:text-[#C25A3C] transition-colors">
                     Play Film
-                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
                 </div>
               </div>

@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import { Smartphone, Bot, Check, ArrowRight } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
 import { SectionHeadingReveal } from './SectionTransition';
@@ -22,11 +22,11 @@ export const HowYouShowUpSection: React.FC = () => {
     <section
       id="how-you-show-up"
       aria-label="How You Show Up"
-      className="py-16 md:py-[88px] border-b border-[rgba(26,24,21,0.12)] bg-[#F4F1EC] scroll-mt-20"
+      className="py-16 md:py-24 border-b border-[rgba(26,24,21,0.12)] bg-[#F4F1EC] scroll-mt-20"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] space-y-12 md:space-y-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-14 space-y-12 md:space-y-16">
         {/* Section Header */}
-        <SectionHeadingReveal className="max-w-3xl space-y-3">
+        <SectionHeadingReveal className="max-w-3xl space-y-4">
           <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
             {howYouShowUp.tag}
           </span>
@@ -42,19 +42,14 @@ export const HowYouShowUpSection: React.FC = () => {
         </SectionHeadingReveal>
 
         {/* Two Options Side by Side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Card 1: Real You */}
           <ScrollReveal delay={100}>
             <div className="bg-[#FFFFFF] rounded-[16px] border border-[rgba(26,24,21,0.14)] p-8 shadow-[0_12px_32px_rgba(26,24,21,0.06)] flex flex-col justify-between h-full hover:border-[#C25A3C]/40 transition-colors">
               <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-[12px] bg-[#FBFAF8] border border-[rgba(26,24,21,0.1)] flex items-center justify-center">
-                    <Smartphone className="w-6 h-6 text-[#1A1815]" />
-                  </div>
-                  <span className="px-3 py-1 rounded-full text-[11.5px] font-semibold uppercase tracking-wider bg-[#FBFAF8] border border-[rgba(26,24,21,0.12)] text-[#5F5A52]">
-                    Option 01
-                  </span>
-                </div>
+                <span className="inline-block px-3 py-1 rounded-full text-[11.5px] font-semibold uppercase tracking-wider bg-[#FBFAF8] border border-[rgba(26,24,21,0.12)] text-[#5F5A52]">
+                  Option 01
+                </span>
 
                 <div className="space-y-2">
                   <h3 className="font-semibold text-[26px] text-[#1A1815]">
@@ -70,16 +65,16 @@ export const HowYouShowUpSection: React.FC = () => {
                 </p>
 
                 {/* Specified Bullet Points */}
-                <div className="bg-[#FBFAF8] rounded-[12px] p-5 border border-[rgba(26,24,21,0.08)] space-y-3">
+                <div className="bg-[#FBFAF8] rounded-[12px] p-6 border border-[rgba(26,24,21,0.08)] space-y-4">
                   <div className="text-[12.5px] font-semibold text-[#1A1815] uppercase tracking-wider">
                     Core Attributes:
                   </div>
-                  <ul className="text-[14px] text-[#37332C] space-y-2.5">
-                    <li className="flex items-center gap-2.5">
+                  <ul className="text-[14px] text-[#37332C] space-y-2">
+                    <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-[#C25A3C] shrink-0" />
                       <span className="font-medium">Your Real Face And Energy</span>
                     </li>
-                    <li className="flex items-center gap-2.5">
+                    <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-[#C25A3C] shrink-0" />
                       <span className="font-medium">No Set, No Crew, No Editing</span>
                     </li>
@@ -101,14 +96,9 @@ export const HowYouShowUpSection: React.FC = () => {
               </div>
 
               <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-[12px] bg-[#C25A3C]/10 border border-[#C25A3C]/20 flex items-center justify-center">
-                    <Bot className="w-6 h-6 text-[#C25A3C]" />
-                  </div>
-                  <span className="px-3 py-1 rounded-full text-[11.5px] font-semibold uppercase tracking-wider bg-[#C25A3C]/10 text-[#C25A3C]">
-                    Option 02
-                  </span>
-                </div>
+                <span className="inline-block px-3 py-1 rounded-full text-[11.5px] font-semibold uppercase tracking-wider bg-[#C25A3C]/10 text-[#C25A3C]">
+                  Option 02
+                </span>
 
                 <div className="space-y-2">
                   <h3 className="font-semibold text-[26px] text-[#1A1815]">
@@ -124,16 +114,16 @@ export const HowYouShowUpSection: React.FC = () => {
                 </p>
 
                 {/* Specified Bullet Points */}
-                <div className="bg-[#FBFAF8] rounded-[12px] p-5 border border-[rgba(26,24,21,0.08)] space-y-3">
+                <div className="bg-[#FBFAF8] rounded-[12px] p-6 border border-[rgba(26,24,21,0.08)] space-y-4">
                   <div className="text-[12.5px] font-semibold text-[#1A1815] uppercase tracking-wider">
                     Core Attributes:
                   </div>
-                  <ul className="text-[14px] text-[#37332C] space-y-2.5">
-                    <li className="flex items-center gap-2.5">
+                  <ul className="text-[14px] text-[#37332C] space-y-2">
+                    <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-[#C25A3C] shrink-0" />
                       <span className="font-medium">You Never Film Again</span>
                     </li>
-                    <li className="flex items-center gap-2.5">
+                    <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-[#C25A3C] shrink-0" />
                       <span className="font-medium">You Approve A Test Video First, Or You Don't Pay</span>
                     </li>
@@ -150,7 +140,7 @@ export const HowYouShowUpSection: React.FC = () => {
 
         {/* Transition Guarantee Note */}
         <ScrollReveal delay={300}>
-          <div className="bg-[#FFFFFF] rounded-[14px] border border-[rgba(26,24,21,0.12)] p-6 text-center max-w-4xl mx-auto shadow-xs">
+          <div className="bg-[#FFFFFF] rounded-[16px] border border-[rgba(26,24,21,0.12)] p-6 text-center max-w-4xl mx-auto shadow-xs">
             <p className="font-medium text-[15px] sm:text-[16px] text-[#1A1815]">
               {howYouShowUp.note}
             </p>

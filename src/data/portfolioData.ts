@@ -291,14 +291,14 @@ export const siteContent: SiteContent = {
         title: 'Coaches',
         description:
           'Fill Your Calendar With People Who Already Trust You Before The First Call. Keep Your Hours For Coaching, Not Content.',
-        linkText: 'See The Coach Offer →',
+        linkText: 'See The Coach Offer',
         linkUrl: '/coach.html',
       },
       {
         title: 'Founders',
         description:
           'Build A Following On LinkedIn And X That Brings In Customers, Hires, And Investors. In Your Words, Without Your Evenings.',
-        linkText: 'See The Founder Offer →',
+        linkText: 'See The Founder Offer',
         linkUrl: '/founder.html',
       },
     ],

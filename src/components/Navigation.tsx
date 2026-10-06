@@ -7,7 +7,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { siteContent } from '../data/portfolioData';
 import { BrandLogo } from './BrandLogo';
@@ -56,7 +56,7 @@ export const Navigation: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-[#FBFAF8]/95 backdrop-blur-md border-b border-[rgba(26,24,21,0.12)]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-14 h-20 flex items-center justify-between">
         {/* Left: Logo mark + Wordmark */}
         <a
           href="#"
@@ -73,7 +73,7 @@ export const Navigation: React.FC = () => {
         </a>
 
         {/* Center / Right: Nav links & Book A Call Button */}
-        <div className="hidden md:flex items-center gap-7 lg:gap-10">
+        <div className="hidden md:flex items-center gap-8 lg:gap-10">
           <nav aria-label="Main Navigation" className="flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
@@ -110,10 +110,9 @@ export const Navigation: React.FC = () => {
               e.preventDefault();
               handleNavClick(navigation.ctaButton.href);
             }}
-            className="group inline-flex items-center justify-center gap-2 bg-[#0D0D0D] hover:bg-[#262626] text-[#FFFFFF] rounded-full px-6 py-2.5 font-semibold text-[12.5px] tracking-[0.06em] uppercase transition-all duration-200 shadow-xs hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
+            className="group inline-flex items-center justify-center gap-2 bg-[#0D0D0D] hover:bg-[#262626] text-[#FFFFFF] rounded-full h-10 px-6 font-semibold text-[12.5px] tracking-[0.06em] uppercase transition-all duration-200 shadow-xs hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
           >
             <span>{navigation.ctaButton.label}</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
 
@@ -129,8 +128,8 @@ export const Navigation: React.FC = () => {
 
       {/* Mobile Dropdown Drawer */}
       {mobileOpen && (
-        <div className="md:hidden border-b border-[rgba(26,24,21,0.12)] bg-[#FBFAF8] px-6 py-6 space-y-5 animate-in fade-in slide-in-from-top-2 duration-200">
-          <nav className="flex flex-col gap-3">
+        <div className="md:hidden border-b border-[rgba(26,24,21,0.12)] bg-[#FBFAF8] px-6 py-6 space-y-6 animate-in fade-in slide-in-from-top-2 duration-200">
+          <nav className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
 
@@ -153,17 +152,16 @@ export const Navigation: React.FC = () => {
             })}
 
             {/* Mobile Book A Call Button */}
-            <div className="pt-3">
+            <div className="pt-2">
               <a
                 href={navigation.ctaButton.href}
                 onClick={(e) => {
                   e.preventDefault();
                   handleNavClick(navigation.ctaButton.href);
                 }}
-                className="w-full flex items-center justify-center gap-2 bg-[#0D0D0D] text-[#FFFFFF] rounded-full px-6 py-3 font-semibold text-[13px] tracking-[0.06em] uppercase hover:bg-[#262626] transition-colors shadow-xs"
+                className="w-full flex items-center justify-center gap-2 bg-[#0D0D0D] text-[#FFFFFF] rounded-full h-12 px-6 font-semibold text-[13px] tracking-[0.06em] uppercase hover:bg-[#262626] transition-colors shadow-xs"
               >
                 <span>{navigation.ctaButton.label}</span>
-                <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
           </nav>

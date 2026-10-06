@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="py-12 bg-[#FBFAF8] border-t border-[rgba(26,24,21,0.12)]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-14 flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Left: Brand logo & name */}
         <div className="flex items-center gap-3">
           <BrandLogo size={24} />

@@ -9,7 +9,7 @@
  */
 
 import React, { useState } from 'react';
-import { ArrowRight, Video, Bot, Play, CheckCircle2, ShieldCheck, Clock } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { siteContent, ShowcaseVideo } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
 import { TitleReveal } from './TitleReveal';
@@ -28,7 +28,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPlayFeatured }) => {
     <section
       id="home"
       aria-label="Hero Introduction"
-      className="relative overflow-hidden py-16 md:py-[88px] border-b border-[rgba(26,24,21,0.12)] scroll-mt-20"
+      className="relative overflow-hidden py-16 md:py-24 border-b border-[rgba(26,24,21,0.12)] scroll-mt-20"
     >
       {/* Soft terracotta radial glow behind top centre */}
       <div
@@ -39,15 +39,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPlayFeatured }) => {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-[56px] items-center">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-14 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-14 items-center">
           {/* Left Column: Brand copy and actions */}
           <div className="space-y-6">
             <ScrollReveal>
               {/* Tag: For Coaches And Founders Who Sell On Trust */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(194,90,60,0.4)] bg-[#C25A3C]/[0.06] text-[#C25A3C] text-[12.5px] font-medium tracking-wide">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C25A3C] animate-pulse" />
-                <span>{hero.tag}</span>
+              <div className="inline-flex items-center px-3 py-1 rounded-full border border-[rgba(194,90,60,0.4)] bg-[#C25A3C]/[0.06] text-[#C25A3C] text-[12.5px] font-medium tracking-wide">
+                {hero.tag}
               </div>
             </ScrollReveal>
 
@@ -72,11 +71,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPlayFeatured }) => {
 
             {/* CTA Button & Scarcity Notice */}
             <ScrollReveal delay={300}>
-              <div className="pt-2 space-y-4">
+              <div className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                   <a
                     href={hero.ctaButton.href}
-                    className="inline-flex items-center justify-center gap-2 font-semibold text-[15px] bg-[#C25A3C] text-[#FBFAF8] rounded-[8.5px] px-[28px] py-[15px] hover:bg-[#A94B30] transition-colors duration-150 shadow-xs group"
+                    className="inline-flex items-center justify-center gap-2 font-semibold text-[15px] bg-[#C25A3C] text-[#FBFAF8] rounded-[8.5px] h-12 px-8 hover:bg-[#A94B30] transition-colors duration-150 shadow-xs group"
                   >
                     <span>{hero.ctaButton.label}</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -90,19 +89,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPlayFeatured }) => {
                 </div>
 
                 {/* Quick guarantees pill row */}
-                <div className="pt-3 flex flex-wrap items-center gap-y-2 gap-x-6 text-[13px] text-[#5F5A52]">
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#C25A3C]" />
-                    <span>First Post Live In 7 Days</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-[#C25A3C]" />
-                    <span>Or Month One Free</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-[#C25A3C]" />
-                    <span>You Approve Everything</span>
-                  </div>
+                <div className="flex flex-wrap items-center gap-y-2 gap-x-2 text-[13px] text-[#5F5A52]">
+                  <span>First Post Live In 7 Days</span>
+                  <span aria-hidden="true" className="text-[#A39C90]">·</span>
+                  <span>Or Month One Free</span>
+                  <span aria-hidden="true" className="text-[#A39C90]">·</span>
+                  <span>You Approve Everything</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -112,7 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPlayFeatured }) => {
           <ScrollReveal delay={200}>
             <div className="bg-[#FFFFFF] rounded-[16px] border border-[rgba(26,24,21,0.14)] overflow-hidden shadow-[0_12px_32px_rgba(26,24,21,0.07)]">
               {/* Mode Switcher Tabs */}
-              <div className="bg-[#F8F7F4] border-b border-[rgba(26,24,21,0.1)] p-2.5 flex items-center justify-between">
+              <div className="bg-[#F8F7F4] border-b border-[rgba(26,24,21,0.1)] p-2 flex items-center justify-between">
                 <div className="flex items-center gap-1 bg-[#FFFFFF] rounded-[8px] p-1 border border-[rgba(26,24,21,0.08)]">
                   <button
                     onClick={() => setActiveTab('real')}
@@ -122,7 +114,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPlayFeatured }) => {
                         : 'text-[#5F5A52] hover:text-[#1A1815]'
                     }`}
                   >
-                    <Video className="w-3.5 h-3.5" />
                     <span>Real You</span>
                   </button>
                   <button
@@ -133,7 +124,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPlayFeatured }) => {
                         : 'text-[#5F5A52] hover:text-[#1A1815]'
                     }`}
                   >
-                    <Bot className="w-3.5 h-3.5" />
                     <span>AI Avatar</span>
                   </button>
                 </div>
@@ -155,8 +145,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPlayFeatured }) => {
                 />
 
                 {/* Status Overlay Badge */}
-                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-xs border border-white/10 text-white text-[11px] font-medium flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#C25A3C] animate-pulse" />
+                <div className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-xs border border-white/10 text-white text-[11px] font-medium flex items-center">
                   <span>
                     {activeTab === 'real'
                       ? 'Client Video 1 · Elena Vance [Executive Coach]'
@@ -172,7 +161,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPlayFeatured }) => {
                 </div>
 
                 {/* Captions Preview Bar */}
-                <div className="absolute bottom-3 left-3 right-3 bg-black/75 backdrop-blur-md rounded-[8px] p-2.5 border border-white/10 text-[#FBFAF8] text-[12px] font-medium">
+                <div className="absolute bottom-4 left-4 right-4 bg-black/75 backdrop-blur-md rounded-[8px] p-2 border border-white/10 text-[#FBFAF8] text-[12px] font-medium">
                   {activeTab === 'real'
                     ? '"How to sign 6-figure coaching retainers without losing 20 hours a week to content."'
                     : '"Autonomous video clone rendered from 1 HD recording. Zero days lost in a studio."'
@@ -181,7 +170,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPlayFeatured }) => {
               </div>
 
               {/* Card Footer Details */}
-              <div className="p-5 bg-[#FFFFFF] flex items-center justify-between border-t border-[rgba(26,24,21,0.08)]">
+              <div className="p-4 bg-[#FFFFFF] flex items-center justify-between border-t border-[rgba(26,24,21,0.08)]">
                 <div>
                   <div className="text-[12px] font-medium text-[#C25A3C] uppercase tracking-wider">
                     {activeTab === 'real' ? 'Pathway 01: Real You' : 'Pathway 02: AI Avatar'}

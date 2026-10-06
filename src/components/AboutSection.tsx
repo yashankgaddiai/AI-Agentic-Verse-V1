@@ -8,7 +8,6 @@
  */
 
 import React from 'react';
-import { Users2, Award, HeartHandshake } from 'lucide-react';
 import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
 import { TitleReveal } from './TitleReveal';
@@ -20,12 +19,12 @@ export const AboutSection: React.FC = () => {
     <section
       id="about"
       aria-label="About Us"
-      className="py-16 md:py-[88px] border-b border-[rgba(26,24,21,0.12)] bg-[#F4F1EC] scroll-mt-20"
+      className="py-16 md:py-24 border-b border-[rgba(26,24,21,0.12)] bg-[#F4F1EC] scroll-mt-20"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] space-y-14 md:space-y-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-14 space-y-12 md:space-y-16">
         {/* Top Part: Heading & Narrative */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-10 lg:gap-[56px] items-start">
-          <div className="space-y-3">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-14 items-start">
+          <div className="space-y-4">
             <ScrollReveal>
               <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
                 {aboutUs.tag}
@@ -41,13 +40,13 @@ export const AboutSection: React.FC = () => {
             </TitleReveal>
 
             <ScrollReveal delay={120}>
-              <p className="font-medium text-[16px] text-[#C25A3C] pt-2">
+              <p className="font-medium text-[16px] text-[#C25A3C]">
                 Four Clients A Quarter. The Senior Team Runs Your Account.
               </p>
             </ScrollReveal>
           </div>
 
-          <div className="space-y-5">
+          <div className="space-y-6">
             {aboutUs.paragraphs.map((paragraph, idx) => (
               <ScrollReveal key={idx} delay={idx * 80}>
                 <p className="font-normal text-[16px] sm:text-[17px] leading-[1.72] text-[#5F5A52]">
@@ -60,11 +59,10 @@ export const AboutSection: React.FC = () => {
 
         {/* Founder Story Callout Block (Clearly marked placeholder) */}
         <ScrollReveal delay={250}>
-          <div className="bg-[#FFFFFF] rounded-[16px] border border-dashed border-[#C25A3C]/40 p-8 sm:p-10 shadow-xs relative">
+          <div className="bg-[#FFFFFF] rounded-[16px] border border-dashed border-[#C25A3C]/40 p-8 md:p-12 shadow-xs relative">
             <div className="space-y-4 max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C25A3C]/10 text-[#C25A3C] text-[11.5px] font-semibold uppercase tracking-wider">
-                <Award className="w-3.5 h-3.5" />
-                <span>Founder Narrative</span>
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#C25A3C]/10 text-[#C25A3C] text-[11.5px] font-semibold uppercase tracking-wider">
+                Founder Narrative
               </div>
 
               <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#1A1815]">

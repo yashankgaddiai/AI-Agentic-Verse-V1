@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { ArrowRight, UserCheck, Briefcase } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
 import { SectionHeadingReveal } from './SectionTransition';
@@ -20,11 +20,11 @@ export const WhoWeServeSection: React.FC = () => {
     <section
       id="who-we-serve"
       aria-label="Who We Serve"
-      className="py-16 md:py-[88px] border-b border-[rgba(26,24,21,0.12)] bg-[#FBFAF8] scroll-mt-20"
+      className="py-16 md:py-24 border-b border-[rgba(26,24,21,0.12)] bg-[#FBFAF8] scroll-mt-20"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-[56px] space-y-12 md:space-y-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-14 space-y-12 md:space-y-16">
         {/* Section Header */}
-        <SectionHeadingReveal className="max-w-3xl space-y-3">
+        <SectionHeadingReveal className="max-w-3xl space-y-4">
           <span className="block font-medium text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C]">
             {whoWeServe.tag}
           </span>
@@ -42,16 +42,12 @@ export const WhoWeServeSection: React.FC = () => {
         </SectionHeadingReveal>
 
         {/* 2 Audience Offer Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Card 1: Coaches */}
           <ScrollReveal delay={100}>
             <div className="bg-[#FFFFFF] rounded-[16px] border border-[rgba(26,24,21,0.14)] p-8 shadow-[0_12px_32px_rgba(26,24,21,0.06)] flex flex-col justify-between h-full hover:border-[#C25A3C]/40 hover:-translate-y-1 transition-all duration-200">
               <div className="space-y-6">
-                <div className="w-12 h-12 rounded-[12px] bg-[#F4F1EC] border border-[rgba(26,24,21,0.08)] flex items-center justify-center">
-                  <UserCheck className="w-6 h-6 text-[#C25A3C]" />
-                </div>
-
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <span className="text-[12px] font-semibold uppercase tracking-wider text-[#C25A3C]">
                     For High-Ticket & Executive Mentors
                   </span>
@@ -64,7 +60,7 @@ export const WhoWeServeSection: React.FC = () => {
                   {whoWeServe.audiences[0].description}
                 </p>
 
-                <div className="space-y-2 pt-2">
+                <div className="space-y-2">
                   <div className="text-[13px] font-semibold text-[#1A1815] uppercase tracking-wider">
                     Outcomes:
                   </div>
@@ -82,7 +78,7 @@ export const WhoWeServeSection: React.FC = () => {
               </div>
 
               {/* Dedicated Offer Link: coach.html */}
-              <div className="pt-8 mt-6 border-t border-[rgba(26,24,21,0.08)]">
+              <div className="mt-6 pt-6 border-t border-[rgba(26,24,21,0.08)]">
                 <a
                   href={whoWeServe.audiences[0].linkUrl}
                   className="inline-flex items-center gap-2 font-semibold text-[15px] text-[#1A1815] hover:text-[#C25A3C] transition-colors group"
@@ -98,11 +94,7 @@ export const WhoWeServeSection: React.FC = () => {
           <ScrollReveal delay={200}>
             <div className="bg-[#FFFFFF] rounded-[16px] border border-[rgba(26,24,21,0.14)] p-8 shadow-[0_12px_32px_rgba(26,24,21,0.06)] flex flex-col justify-between h-full hover:border-[#C25A3C]/40 hover:-translate-y-1 transition-all duration-200">
               <div className="space-y-6">
-                <div className="w-12 h-12 rounded-[12px] bg-[#F4F1EC] border border-[rgba(26,24,21,0.08)] flex items-center justify-center">
-                  <Briefcase className="w-6 h-6 text-[#C25A3C]" />
-                </div>
-
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <span className="text-[12px] font-semibold uppercase tracking-wider text-[#C25A3C]">
                     For B2B Operators, CEOs & Innovators
                   </span>
@@ -115,7 +107,7 @@ export const WhoWeServeSection: React.FC = () => {
                   {whoWeServe.audiences[1].description}
                 </p>
 
-                <div className="space-y-2 pt-2">
+                <div className="space-y-2">
                   <div className="text-[13px] font-semibold text-[#1A1815] uppercase tracking-wider">
                     Outcomes:
                   </div>
@@ -133,7 +125,7 @@ export const WhoWeServeSection: React.FC = () => {
               </div>
 
               {/* Dedicated Offer Link: founder.html */}
-              <div className="pt-8 mt-6 border-t border-[rgba(26,24,21,0.08)]">
+              <div className="mt-6 pt-6 border-t border-[rgba(26,24,21,0.08)]">
                 <a
                   href={whoWeServe.audiences[1].linkUrl}
                   className="inline-flex items-center gap-2 font-semibold text-[15px] text-[#1A1815] hover:text-[#C25A3C] transition-colors group"
