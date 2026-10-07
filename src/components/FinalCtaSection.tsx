@@ -17,7 +17,6 @@ import { TitleReveal } from './TitleReveal';
 export const FinalCtaSection: React.FC = () => {
   const { finalCta } = siteContent;
   const [showModal, setShowModal] = useState(false);
-  const [copied, setCopied] = useState(false);
 
   const handleBookingClick = (e: React.MouseEvent) => {
     // If developer/user has not replaced YOUR_BOOKING_LINK with an external URL, open modal scheduler
@@ -25,12 +24,6 @@ export const FinalCtaSection: React.FC = () => {
       e.preventDefault();
       setShowModal(true);
     }
-  };
-
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href + '#book');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -83,14 +76,6 @@ export const FinalCtaSection: React.FC = () => {
               <span>{finalCta.ctaButton.label}</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
-
-            {/* Share / Copy quick link button */}
-            <button
-              onClick={handleCopyLink}
-              className="w-full sm:w-auto inline-flex items-center justify-center font-semibold text-[14px] bg-[#FFFFFF] text-[#1A1815] border border-[rgba(26,24,21,0.16)] rounded-[8.5px] h-12 px-6 hover:border-[#1A1815] transition-colors"
-            >
-              <span>{copied ? 'Link Copied' : 'Share Booking Link'}</span>
-            </button>
           </div>
 
           {/* Guarantee notice row */}

@@ -29,7 +29,10 @@ export const TitleReveal: React.FC<TitleRevealProps> = ({
     return <Component className={className}>{children}</Component>;
   }
 
+  // The outer flow-root wrapper takes the parent's space-y margin; the inner mask's
+  // negative margins only offset its descender padding and can't override that gap.
   return (
+    <div className="flow-root">
     <div className="overflow-hidden py-1 -my-1">
       <motion.div
         initial={{ y: 24, opacity: 0 }}
@@ -43,6 +46,7 @@ export const TitleReveal: React.FC<TitleRevealProps> = ({
       >
         <Component className={className}>{children}</Component>
       </motion.div>
+    </div>
     </div>
   );
 };
