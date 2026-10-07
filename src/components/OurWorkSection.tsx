@@ -102,9 +102,9 @@ export const OurWorkSection: React.FC<OurWorkSectionProps> = ({ onSelectVideo })
                   className="relative w-full h-full object-contain transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
-                {/* Terracotta Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/35 transition-colors">
-                  <div className="w-14 h-14 rounded-full bg-[#C25A3C] flex items-center justify-center shadow-md transform transition-transform group-hover:scale-110">
+                {/* Terracotta Play Button Overlay: revealed on hover; always shown on touch screens */}
+                <div className="absolute inset-0 flex items-center justify-center bg-transparent group-hover:bg-black/25 transition-colors duration-200">
+                  <div className="w-14 h-14 rounded-full bg-[#C25A3C] flex items-center justify-center shadow-md opacity-0 scale-90 transition-[opacity,scale] duration-200 ease-out group-hover:opacity-100 group-hover:scale-100 pointer-coarse:opacity-100 pointer-coarse:scale-100">
                     <Play className="w-5 h-5 fill-[#FBFAF8] text-[#FBFAF8] translate-x-0.5" />
                   </div>
                 </div>
