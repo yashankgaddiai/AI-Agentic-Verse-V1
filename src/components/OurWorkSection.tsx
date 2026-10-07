@@ -89,10 +89,17 @@ export const OurWorkSection: React.FC<OurWorkSectionProps> = ({ onSelectVideo })
             >
               {/* 16:9 Thumbnail Frame */}
               <div className="relative aspect-video w-full overflow-hidden bg-[#1A1815]">
+                {/* Blurred fill so portrait thumbnails show in full; hidden behind widescreen ones */}
+                <img
+                  src={video.thumbnailUrl}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover scale-110 blur-xl opacity-70"
+                />
                 <img
                   src={video.thumbnailUrl}
                   alt={`${video.title} sample`}
-                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 opacity-90"
+                  className="relative w-full h-full object-contain transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
                 {/* Terracotta Play Button Overlay */}
