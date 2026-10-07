@@ -134,10 +134,7 @@ export const OurWorkSection: React.FC<OurWorkSectionProps> = ({ onSelectVideo })
 
                 {/* Action Row */}
                 <div className="pt-4 border-t border-[rgba(26,24,21,0.08)] flex items-center justify-between font-medium text-[13px]">
-                  <span className="text-[#857F74]">Watch Client Post</span>
-                  <span className="text-[#1A1815] group-hover:text-[#C25A3C] transition-colors">
-                    Play Film
-                  </span>
+                  <span className="text-[#857F74] group-hover:text-[#C25A3C] transition-colors">Watch Client Post</span>
                 </div>
               </div>
             </motion.article>
