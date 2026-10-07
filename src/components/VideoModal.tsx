@@ -134,10 +134,6 @@ export const VideoModal: React.FC<VideoModalProps> = ({ project, onClose }) => {
         {/* Top Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#24211D]">
           <div className="flex items-center gap-3">
-            <span className="text-[11.5px] uppercase tracking-[0.16em] text-[#C25A3C] font-semibold">
-              {project.category}
-            </span>
-            <span className="text-white/40 text-xs" aria-hidden="true">·</span>
             <h3 className="text-[16px] font-medium text-white truncate max-w-md">
               {project.title}
             </h3>

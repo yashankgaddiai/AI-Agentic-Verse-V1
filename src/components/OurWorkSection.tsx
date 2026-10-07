@@ -106,11 +106,6 @@ export const OurWorkSection: React.FC<OurWorkSectionProps> = ({ onSelectVideo })
                 <div className="absolute bottom-4 right-4 px-2 py-0.5 rounded-[4px] bg-black/80 text-[#FBFAF8] font-medium text-[11.5px] tabular-nums">
                   {video.duration}
                 </div>
-
-                {/* Category / Pipeline Tag */}
-                <div className="absolute top-4 left-4 px-2.5 py-1 rounded-[6px] bg-black/75 backdrop-blur-xs text-[#FBFAF8] font-semibold text-[10.5px] uppercase tracking-wider">
-                  {video.category}
-                </div>
               </div>
 
               {/* Card Body */}
