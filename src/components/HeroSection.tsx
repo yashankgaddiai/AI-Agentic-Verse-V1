@@ -22,7 +22,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPlayFeatured }) => {
   const { hero, ourWork } = siteContent;
   const [activeTab, setActiveTab] = useState<'real' | 'avatar'>('real');
 
-  const sampleVideo = ourWork.videos[0];
+  const sampleVideo = activeTab === 'real' ? ourWork.videos[0] : ourWork.videos[1];
 
   return (
     <section
@@ -148,8 +148,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPlayFeatured }) => {
                 <div className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-xs border border-white/10 text-white text-[11px] font-medium flex items-center">
                   <span>
                     {activeTab === 'real'
-                      ? 'Client Video 1 · Elena Vance [Executive Coach]'
-                      : 'Client Video 2 · David Sterling [SaaS Founder]'}
+                      ? 'Client Video 1 · Murthy'
+                      : 'Client Video 2 · Prithvi [Coach]'}
                   </span>
                 </div>
 

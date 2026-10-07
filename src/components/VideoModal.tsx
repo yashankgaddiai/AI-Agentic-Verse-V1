@@ -7,6 +7,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize, X } from 'lucide-react';
 import { VideoProject } from '../data/portfolioData';
 
+// Returns the video ID for youtube.com/watch, /shorts, /embed and youtu.be links, or null.
+const getYouTubeId = (url: string): string | null => {
+  const match = url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{11})/);
+  return match ? match[1] : null;
+};
+
 interface VideoModalProps {
   project: {
     title: string;
@@ -58,6 +64,9 @@ export const VideoModal: React.FC<VideoModalProps> = ({ project, onClose }) => {
   }, [project]);
 
   if (!project) return null;
+
+  const youTubeId = getYouTubeId(project.videoUrl);
+  const isShort = project.videoUrl.includes('/shorts/');
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -149,7 +158,19 @@ export const VideoModal: React.FC<VideoModalProps> = ({ project, onClose }) => {
           </button>
         </div>
 
-        {/* Video Screen Area */}
+        {/* YouTube embed (Shorts render in a vertical 9:16 frame) */}
+        {youTubeId ? (
+          <div className="bg-black flex justify-center">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${youTubeId}?autoplay=1&rel=0&playsinline=1`}
+              title={project.title}
+              allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+              allowFullScreen
+              className={isShort ? 'h-[70vh] max-w-full aspect-[9/16]' : 'w-full aspect-video'}
+            />
+          </div>
+        ) : (
+        /* Video Screen Area */
         <div className="relative aspect-video bg-black group flex items-center justify-center">
           <video
             ref={videoRef}
@@ -230,6 +251,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ project, onClose }) => {
             </div>
           </div>
         </div>
+        )}
 
         {/* Project Details */}
         <div className="p-6 md:p-8 bg-[#1A1815] border-t border-white/10 space-y-3">
@@ -238,7 +260,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ project, onClose }) => {
           </p>
 
           <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[12.5px] text-white/50">
-            <span>Video URL placeholder active in portfolioData.ts</span>
+            <span>{youTubeId ? '' : 'Video URL placeholder active in portfolioData.ts'}</span>
             <span className="text-[#C25A3C] font-medium">Runtime: {project.duration}</span>
           </div>
         </div>
