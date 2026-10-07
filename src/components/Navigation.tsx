@@ -106,10 +106,8 @@ export const Navigation: React.FC = () => {
           {/* Book A Call (Button) */}
           <a
             href={navigation.ctaButton.href}
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick(navigation.ctaButton.href);
-            }}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-2 bg-[#0D0D0D] hover:bg-[#262626] text-[#FFFFFF] rounded-full h-10 px-6 font-semibold text-[12.5px] tracking-[0.06em] uppercase transition-all duration-200 shadow-xs hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
           >
             <span>{navigation.ctaButton.label}</span>
@@ -155,10 +153,9 @@ export const Navigation: React.FC = () => {
             <div className="pt-2">
               <a
                 href={navigation.ctaButton.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(navigation.ctaButton.href);
-                }}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
                 className="w-full flex items-center justify-center gap-2 bg-[#0D0D0D] text-[#FFFFFF] rounded-full h-12 px-6 font-semibold text-[13px] tracking-[0.06em] uppercase hover:bg-[#262626] transition-colors shadow-xs"
               >
                 <span>{navigation.ctaButton.label}</span>

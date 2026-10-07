@@ -130,6 +130,9 @@ export interface SiteContent {
   };
 }
 
+// Strategy call booking page used by every "Book" button on the site.
+export const BOOKING_URL = 'https://calendly.com/aiagenticverseinternational/30min';
+
 export const siteContent: SiteContent = {
   meta: {
     title: 'AI Agentic Verse | Be The Expert Your Market Sees Every Day',
@@ -148,7 +151,7 @@ export const siteContent: SiteContent = {
     ],
     ctaButton: {
       label: 'Book A Call',
-      href: '#book',
+      href: BOOKING_URL,
     },
   },
 
@@ -159,7 +162,7 @@ export const siteContent: SiteContent = {
       'We Turn What You Already Know Into Daily Content, In Your Own Face And Voice. You Approve It. We Do The Rest. Your First Post Goes Live In 7 Days, Or Your First Month Is Free.',
     ctaButton: {
       label: 'Book A Strategy Call',
-      href: '#book',
+      href: BOOKING_URL,
     },
     scarcityNotice: 'We Take Four Clients A Quarter. Every Client Gets The Team That Sold Them.',
   },
@@ -382,8 +385,7 @@ export const siteContent: SiteContent = {
       'Book A 30 Minute Strategy Call. You Leave With A Written Game Plan, Even If We Never Work Together.',
     ctaButton: {
       label: 'Book A Strategy Call',
-      /* PLACEHOLDER: Replace YOUR_BOOKING_LINK with your Calendly / Cal.com link */
-      url: 'YOUR_BOOKING_LINK',
+      url: BOOKING_URL,
     },
     guaranteeNotice: 'First Post Live In 7 Days, Or Your First Month Is Free.',
   },

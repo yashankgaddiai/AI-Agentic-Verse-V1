@@ -4,7 +4,7 @@
  * - Tag: Four Clients A Quarter
  * - Heading: Three Months From Now, You'll Either Be Posting Every Day Or Still Planning To.
  * - Subtext: Book A 30 Minute Strategy Call. You Leave With A Written Game Plan, Even If We Never Work Together.
- * - Button: Book A Strategy Call (Link: YOUR_BOOKING_LINK)
+ * - Button: Book A Strategy Call (Link: BOOKING_URL in portfolioData.ts)
  * - Guarantee notice: First Post Live In 7 Days, Or Your First Month Is Free.
  */
 
@@ -70,6 +70,8 @@ export const FinalCtaSection: React.FC = () => {
             {/* Primary Booking Button */}
             <a
               href={finalCta.ctaButton.url}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={handleBookingClick}
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 h-14 px-10 rounded-[10px] bg-[#C25A3C] text-[#FBFAF8] font-semibold text-[16px] tracking-[-0.005em] shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_8px_20px_-6px_rgba(194,90,60,0.55)] transition-[background-color,box-shadow,translate] duration-200 ease-out hover:bg-[#A94B30] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_14px_28px_-8px_rgba(194,90,60,0.6)] motion-safe:hover:-translate-y-0.5 active:translate-y-0 active:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_4px_10px_-4px_rgba(194,90,60,0.5)]"
             >
