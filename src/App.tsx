@@ -55,7 +55,7 @@ export default function App() {
       <main className="flex-1">
         {/* 1. Hero */}
         <SectionTransition>
-          <HeroSection onPlayFeatured={(video) => setActiveVideo(video)} />
+          <HeroSection />
         </SectionTransition>
 
         {/* 2. Our Work (#our-work) */}
