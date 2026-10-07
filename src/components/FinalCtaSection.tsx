@@ -71,10 +71,10 @@ export const FinalCtaSection: React.FC = () => {
             <a
               href={finalCta.ctaButton.url}
               onClick={handleBookingClick}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-semibold text-[15px] bg-[#C25A3C] text-[#FBFAF8] rounded-[8.5px] h-12 px-8 hover:bg-[#A94B30] transition-colors duration-150 shadow-md group"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 h-14 px-10 rounded-[10px] bg-[#C25A3C] text-[#FBFAF8] font-semibold text-[16px] tracking-[-0.005em] shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_8px_20px_-6px_rgba(194,90,60,0.55)] transition-[background-color,box-shadow,translate] duration-200 ease-out hover:bg-[#A94B30] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_14px_28px_-8px_rgba(194,90,60,0.6)] motion-safe:hover:-translate-y-0.5 active:translate-y-0 active:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_4px_10px_-4px_rgba(194,90,60,0.5)]"
             >
               <span>{finalCta.ctaButton.label}</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-[18px] h-[18px] transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-1" />
             </a>
           </div>
 
