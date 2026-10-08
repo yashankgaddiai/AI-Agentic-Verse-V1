@@ -23,10 +23,12 @@ import { FitAnalysisSection } from './components/FitAnalysisSection';
 import { FinalCtaSection } from './components/FinalCtaSection';
 import { Footer } from './components/Footer';
 import { VideoModal } from './components/VideoModal';
+import { AuditModal } from './components/AuditModal';
 import { siteContent, ShowcaseVideo } from './data/portfolioData';
 
 export default function App() {
   const [activeVideo, setActiveVideo] = useState<ShowcaseVideo | null>(null);
+  const [auditOpen, setAuditOpen] = useState(false);
   const { meta } = siteContent;
 
   return (
@@ -56,7 +58,7 @@ export default function App() {
       <main className="flex-1">
         {/* 1. Hero */}
         <SectionTransition>
-          <HeroSection />
+          <HeroSection onOpenAudit={() => setAuditOpen(true)} />
         </SectionTransition>
 
         {/* 2. Our Work (#our-work) */}
@@ -111,7 +113,7 @@ export default function App() {
 
         {/* 11. Final Call To Action (#book) */}
         <SectionTransition>
-          <FinalCtaSection />
+          <FinalCtaSection onOpenAudit={() => setAuditOpen(true)} />
         </SectionTransition>
       </main>
 
@@ -123,6 +125,9 @@ export default function App() {
         project={activeVideo}
         onClose={() => setActiveVideo(null)}
       />
+
+      {/* Free AI Marketing Audit lead form */}
+      <AuditModal open={auditOpen} onClose={() => setAuditOpen(false)} />
     </div>
   );
 }

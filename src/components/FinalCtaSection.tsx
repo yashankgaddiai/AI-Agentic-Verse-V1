@@ -14,7 +14,11 @@ import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
 import { TitleReveal } from './TitleReveal';
 
-export const FinalCtaSection: React.FC = () => {
+interface FinalCtaSectionProps {
+  onOpenAudit: () => void;
+}
+
+export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onOpenAudit }) => {
   const { finalCta } = siteContent;
   const [showModal, setShowModal] = useState(false);
 
@@ -78,6 +82,15 @@ export const FinalCtaSection: React.FC = () => {
               <span>{finalCta.ctaButton.label}</span>
               <ArrowRight className="w-[18px] h-[18px] transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-1" />
             </a>
+
+            {/* Free AI Marketing Audit (opens lead form popup) */}
+            <button
+              type="button"
+              onClick={onOpenAudit}
+              className="w-full sm:w-auto inline-flex items-center justify-center h-14 px-8 rounded-[10px] border border-[rgba(26,24,21,0.18)] bg-white text-[#1A1815] font-semibold text-[16px] tracking-[-0.005em] transition-colors duration-200 hover:border-[#1A1815]"
+            >
+              Get Your Free AI Marketing Audit
+            </button>
           </div>
 
           {/* Guarantee notice row */}

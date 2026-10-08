@@ -14,7 +14,11 @@ import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
 import { TitleReveal } from './TitleReveal';
 
-export const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  onOpenAudit: () => void;
+}
+
+export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAudit }) => {
   const { hero } = siteContent;
 
   return (
@@ -63,15 +67,26 @@ export const HeroSection: React.FC = () => {
           {/* CTA Button & Scarcity Notice */}
           <ScrollReveal delay={300}>
             <div className="flex flex-col items-center gap-4">
-              <a
-                href={hero.ctaButton.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 h-14 px-10 rounded-[10px] bg-[#C25A3C] text-[#FBFAF8] font-semibold text-[16px] tracking-[-0.005em] shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_8px_20px_-6px_rgba(194,90,60,0.55)] transition-[background-color,box-shadow,translate] duration-200 ease-out hover:bg-[#A94B30] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_14px_28px_-8px_rgba(194,90,60,0.6)] motion-safe:hover:-translate-y-0.5 active:translate-y-0 active:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_4px_10px_-4px_rgba(194,90,60,0.5)]"
-              >
-                <span>{hero.ctaButton.label}</span>
-                <ArrowRight className="w-[18px] h-[18px] transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-1" />
-              </a>
+              <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href={hero.ctaButton.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 h-14 px-10 rounded-[10px] bg-[#C25A3C] text-[#FBFAF8] font-semibold text-[16px] tracking-[-0.005em] shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_8px_20px_-6px_rgba(194,90,60,0.55)] transition-[background-color,box-shadow,translate] duration-200 ease-out hover:bg-[#A94B30] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_14px_28px_-8px_rgba(194,90,60,0.6)] motion-safe:hover:-translate-y-0.5 active:translate-y-0 active:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_4px_10px_-4px_rgba(194,90,60,0.5)]"
+                >
+                  <span>{hero.ctaButton.label}</span>
+                  <ArrowRight className="w-[18px] h-[18px] transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-1" />
+                </a>
+
+                {/* Free AI Marketing Audit (opens lead form popup) */}
+                <button
+                  type="button"
+                  onClick={onOpenAudit}
+                  className="w-full sm:w-auto inline-flex items-center justify-center h-14 px-8 rounded-[10px] border border-[rgba(26,24,21,0.18)] bg-white text-[#1A1815] font-semibold text-[16px] tracking-[-0.005em] transition-colors duration-200 hover:border-[#1A1815]"
+                >
+                  Get Your Free AI Marketing Audit
+                </button>
+              </div>
 
               {/* Scarcity Notice */}
               <div className="inline-flex items-center gap-2 text-[13.5px] font-medium text-[#6E685E]">

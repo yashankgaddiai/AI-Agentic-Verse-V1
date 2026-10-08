@@ -133,6 +133,10 @@ export interface SiteContent {
 // Strategy call booking page used by every "Book" button on the site.
 export const BOOKING_URL = 'https://calendly.com/aiagenticverseinternational/30min';
 
+// Web3Forms access key for the Free AI Marketing Audit form (get one free at web3forms.com).
+// Leads are emailed to the address the key was created with.
+export const WEB3FORMS_ACCESS_KEY = 'c8529d94-abf5-495a-8aba-c93cfeb08ed4';
+
 // Example ads shown in the AI Commercials section. Add one entry per video.
 export const aiCommercialVideos: ShowcaseVideo[] = [
   {
