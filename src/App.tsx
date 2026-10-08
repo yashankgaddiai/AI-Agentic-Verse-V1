@@ -4,7 +4,7 @@
  * Minimalist website strictly matching the user's latest specification.
  */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SEO } from './components/SEO';
 import { ScrollProgress } from './components/ScrollProgress';
 import { Navigation } from './components/Navigation';
@@ -29,6 +29,27 @@ import { siteContent, ShowcaseVideo } from './data/portfolioData';
 export default function App() {
   const [activeVideo, setActiveVideo] = useState<ShowcaseVideo | null>(null);
   const [auditOpen, setAuditOpen] = useState(false);
+  const [auditAutoOpened, setAuditAutoOpened] = useState(false);
+
+  // Open the audit popup by itself once per visit, a few seconds after landing.
+  // Skipped for visitors who already submitted it. Storage can throw in private modes.
+  useEffect(() => {
+    let alreadySeen = false;
+    try {
+      alreadySeen = Boolean(sessionStorage.getItem('auditPopupShown') || localStorage.getItem('auditSubmitted'));
+    } catch {}
+    if (alreadySeen) return;
+
+    const timer = setTimeout(() => {
+      setAuditAutoOpened(true);
+      setAuditOpen(true);
+      try {
+        sessionStorage.setItem('auditPopupShown', '1');
+      } catch {}
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const { meta } = siteContent;
 
   return (
@@ -127,7 +148,14 @@ export default function App() {
       />
 
       {/* Free AI Marketing Audit lead form */}
-      <AuditModal open={auditOpen} onClose={() => setAuditOpen(false)} />
+      <AuditModal
+        open={auditOpen}
+        focusFirstField={!auditAutoOpened}
+        onClose={() => {
+          setAuditOpen(false);
+          setAuditAutoOpened(false);
+        }}
+      />
     </div>
   );
 }

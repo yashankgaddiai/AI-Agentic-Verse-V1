@@ -11,6 +11,8 @@ import { WEB3FORMS_ACCESS_KEY } from '../data/portfolioData';
 interface AuditModalProps {
   open: boolean;
   onClose: () => void;
+  // False when the popup opens by itself, so phones don't raise the keyboard uninvited
+  focusFirstField?: boolean;
 }
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
@@ -20,7 +22,8 @@ const COMPANY_SIZES = ['Just me', '2-10', '11-50', '50+'];
 const inputClass =
   'w-full h-12 px-4 rounded-[10px] border border-[rgba(26,24,21,0.18)] bg-[#FBFAF8] text-[15px] text-[#1A1815] placeholder:text-[#A39C90] transition-colors focus:outline-none focus:border-[#C25A3C] focus:bg-white';
 
-export const AuditModal: React.FC<AuditModalProps> = ({ open, onClose }) => {
+export const AuditModal: React.FC<AuditModalProps> = ({ open, onClose, focusFirstField = true }) => {
+  const dialogRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<Status>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const firstFieldRef = useRef<HTMLInputElement>(null);
@@ -34,7 +37,11 @@ export const AuditModal: React.FC<AuditModalProps> = ({ open, onClose }) => {
     returnFocusRef.current = document.activeElement as HTMLElement;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    firstFieldRef.current?.focus();
+    if (focusFirstField) {
+      firstFieldRef.current?.focus();
+    } else {
+      dialogRef.current?.focus();
+    }
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onCloseRef.current();
@@ -87,6 +94,9 @@ export const AuditModal: React.FC<AuditModalProps> = ({ open, onClose }) => {
       const result = await response.json();
       if (!result.success) throw new Error(result.message);
       setStatus('success');
+      try {
+        localStorage.setItem('auditSubmitted', '1');
+      } catch {}
       form.reset();
     } catch {
       setStatus('error');
@@ -100,6 +110,9 @@ export const AuditModal: React.FC<AuditModalProps> = ({ open, onClose }) => {
       onClick={onClose}
     >
       <div
+        ref={dialogRef}
+        tabIndex={-1}
+        style={{ outline: 'none' }}
         role="dialog"
         aria-modal="true"
         aria-labelledby="audit-modal-title"
