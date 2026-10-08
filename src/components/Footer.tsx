@@ -1,7 +1,7 @@
 /**
  * @file Footer.tsx
  * Minimalist footer strictly matching the user's brief:
- * - Coaches | Founders (Links to coach.html and founder.html)
+ * - Coaches | Founders | AI Commercials (links to the offer pages)
  * - © [Current Year, Auto-Filled] AI Agentic Verse. All Rights Reserved.
  */
 
@@ -37,6 +37,13 @@ export const Footer: React.FC = () => {
             className="hover:text-[#C25A3C] transition-colors py-1"
           >
             Founders
+          </a>
+          <span className="text-[#857F74]">|</span>
+          <a
+            href="/ai-commercials.html"
+            className="hover:text-[#C25A3C] transition-colors py-1"
+          >
+            AI Commercials
           </a>
         </div>
 

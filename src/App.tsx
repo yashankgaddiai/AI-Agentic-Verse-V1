@@ -15,6 +15,7 @@ import { TheProblemSection } from './components/TheProblemSection';
 import { WhatChangesSection } from './components/WhatChangesSection';
 import { HowYouShowUpSection } from './components/HowYouShowUpSection';
 import { WhoWeServeSection } from './components/WhoWeServeSection';
+import { AiCommercialsSection } from './components/AiCommercialsSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { OurPromiseSection } from './components/OurPromiseSection';
 import { AboutSection } from './components/AboutSection';
@@ -81,6 +82,11 @@ export default function App() {
         {/* 6. Who We Serve (#who-we-serve) */}
         <SectionTransition>
           <WhoWeServeSection />
+        </SectionTransition>
+
+        {/* 6b. AI Commercials (#ai-commercials) */}
+        <SectionTransition>
+          <AiCommercialsSection />
         </SectionTransition>
 
         {/* 7. How It Works (#how-it-works) */}
