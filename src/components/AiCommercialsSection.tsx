@@ -3,7 +3,7 @@
  * AI Commercials add-on offer, condensed from public/ai-commercials.html:
  * - Heading: Full ad creative, built without a camera crew, a studio, or a shoot day.
  * - Short-timeline use cases, What you get, How it fits with the engines
- * - Book a call (Calendly) + link to the full offer page
+ * - Book a call (Calendly)
  */
 
 import React from 'react';
@@ -160,14 +160,8 @@ export const AiCommercialsSection: React.FC<AiCommercialsSectionProps> = ({ onSe
               rel="noopener noreferrer"
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 h-14 px-10 rounded-[10px] bg-[#C25A3C] text-[#FBFAF8] font-semibold text-[16px] tracking-[-0.005em] shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_8px_20px_-6px_rgba(194,90,60,0.55)] transition-[background-color,box-shadow,translate] duration-200 ease-out hover:bg-[#A94B30] motion-safe:hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>See examples. Book a call.</span>
+              <span>Book a call</span>
               <ArrowRight className="w-[18px] h-[18px] transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-1" />
-            </a>
-            <a
-              href="/ai-commercials.html"
-              className="font-semibold text-[15px] text-white/80 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white transition-colors"
-            >
-              See the full AI Commercials offer
             </a>
           </div>
         </ScrollReveal>
