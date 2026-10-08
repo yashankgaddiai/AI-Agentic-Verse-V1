@@ -40,7 +40,7 @@ export default function App() {
         }
         description={
           activeVideo
-            ? `${activeVideo.description} Built and run by AI Agentic Verse.`
+            ? `${activeVideo.description || `${activeVideo.title}.`} Built and run by AI Agentic Verse.`
             : meta.description
         }
         ogImage={activeVideo ? activeVideo.thumbnailUrl : meta.ogImage}
@@ -86,7 +86,7 @@ export default function App() {
 
         {/* 6b. AI Commercials (#ai-commercials) */}
         <SectionTransition>
-          <AiCommercialsSection />
+          <AiCommercialsSection onSelectVideo={(video) => setActiveVideo(video)} />
         </SectionTransition>
 
         {/* 7. How It Works (#how-it-works) */}

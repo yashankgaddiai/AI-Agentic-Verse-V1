@@ -249,17 +249,23 @@ export const VideoModal: React.FC<VideoModalProps> = ({ project, onClose }) => {
         </div>
         )}
 
-        {/* Project Details */}
-        <div className="p-6 md:p-8 bg-[#1A1815] border-t border-white/10 space-y-3">
-          <p className="text-[15px] sm:text-[16px] leading-[1.65] text-white/80 max-w-3xl">
-            {project.description || project.shortDescription}
-          </p>
+        {/* Project Details (omitted when a video has no description or runtime) */}
+        {(project.description || project.shortDescription || project.duration) && (
+          <div className="p-6 md:p-8 bg-[#1A1815] border-t border-white/10 space-y-3">
+            {(project.description || project.shortDescription) && (
+              <p className="text-[15px] sm:text-[16px] leading-[1.65] text-white/80 max-w-3xl">
+                {project.description || project.shortDescription}
+              </p>
+            )}
 
-          <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[12.5px] text-white/50">
-            <span>{youTubeId ? '' : 'Video URL placeholder active in portfolioData.ts'}</span>
-            <span className="text-[#C25A3C] font-medium">Runtime: {project.duration}</span>
+            {project.duration && (
+              <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[12.5px] text-white/50">
+                <span>{youTubeId ? '' : 'Video URL placeholder active in portfolioData.ts'}</span>
+                <span className="text-[#C25A3C] font-medium">Runtime: {project.duration}</span>
+              </div>
+            )}
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

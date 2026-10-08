@@ -7,8 +7,8 @@
  */
 
 import React from 'react';
-import { ArrowRight, Check } from 'lucide-react';
-import { BOOKING_URL } from '../data/portfolioData';
+import { ArrowRight, Check, Play } from 'lucide-react';
+import { BOOKING_URL, aiCommercialVideos, ShowcaseVideo } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
 import { SectionHeadingReveal } from './SectionTransition';
 import { TitleReveal } from './TitleReveal';
@@ -28,7 +28,11 @@ const deliverables = [
   'Delivered ready to upload to Meta, TikTok, or YouTube ads',
 ];
 
-export const AiCommercialsSection: React.FC = () => {
+interface AiCommercialsSectionProps {
+  onSelectVideo: (video: ShowcaseVideo) => void;
+}
+
+export const AiCommercialsSection: React.FC<AiCommercialsSectionProps> = ({ onSelectVideo }) => {
   return (
     <section
       id="ai-commercials"
@@ -57,6 +61,48 @@ export const AiCommercialsSection: React.FC = () => {
             We script, voice, and produce commercial-style video ads using AI generated actors and AI cloned voices. You get a finished ad ready to run. No film crew. No studio booking. No reshoots because one take was off.
           </p>
         </SectionHeadingReveal>
+
+        {/* Example Ads */}
+        {aiCommercialVideos.length > 0 && (
+          <ScrollReveal>
+            <div className="space-y-6">
+              <h3 className="font-medium text-[11.5px] uppercase tracking-[0.16em] text-white/60">
+                Examples
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {aiCommercialVideos.map((video) => (
+                  <button
+                    key={video.id}
+                    type="button"
+                    onClick={() => onSelectVideo(video)}
+                    aria-label={`Play ${video.title}`}
+                    className="group block w-full text-left rounded-[16px] overflow-hidden border border-white/10 bg-white/[0.04] hover:border-[#E08A6D]/50 transition-colors"
+                  >
+                    <div className="relative aspect-video overflow-hidden bg-black">
+                      <img
+                        src={video.thumbnailUrl}
+                        alt=""
+                        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      />
+                      {/* Play button: revealed on hover; always shown on touch screens */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-transparent group-hover:bg-black/25 transition-colors duration-200">
+                        <div className="w-14 h-14 rounded-full bg-[#C25A3C] flex items-center justify-center shadow-md opacity-0 scale-90 transition-[opacity,scale] duration-200 ease-out group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100 pointer-coarse:opacity-100 pointer-coarse:scale-100">
+                          <Play className="w-5 h-5 fill-[#FBFAF8] text-[#FBFAF8] translate-x-0.5" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="px-6 py-4 flex items-center justify-between gap-4">
+                      <span className="font-semibold text-[16px] text-[#FBFAF8]">{video.title}</span>
+                      <span className="text-[13px] font-medium text-white/60 group-hover:text-[#E08A6D] transition-colors">
+                        Watch
+                      </span>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Use cases + How it fits */}

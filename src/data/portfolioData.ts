@@ -133,6 +133,62 @@ export interface SiteContent {
 // Strategy call booking page used by every "Book" button on the site.
 export const BOOKING_URL = 'https://calendly.com/aiagenticverseinternational/30min';
 
+// Example ads shown in the AI Commercials section. Add one entry per video.
+export const aiCommercialVideos: ShowcaseVideo[] = [
+  {
+    id: 'ai-commercial-1',
+    title: 'Real Estate Demo',
+    category: 'AI Commercial',
+    duration: '',
+    tag: '',
+    clientName: '',
+    clientRole: '',
+    captionPlaceholder: '',
+    description: '',
+    thumbnailUrl: '/images/ai-commercial-1.jpg',
+    videoUrl: 'https://www.youtube.com/watch?v=-dXnZDxRKT0',
+  },
+  {
+    id: 'ai-commercial-2',
+    title: 'Jewellery Demo',
+    category: 'AI Commercial',
+    duration: '',
+    tag: '',
+    clientName: '',
+    clientRole: '',
+    captionPlaceholder: '',
+    description: '',
+    thumbnailUrl: '/images/ai-commercial-2.jpg',
+    videoUrl: 'https://youtu.be/2sqlCL1k0GU',
+  },
+  {
+    id: 'ai-commercial-3',
+    title: 'Agriculture Demo',
+    category: 'AI Commercial',
+    duration: '',
+    tag: '',
+    clientName: '',
+    clientRole: '',
+    captionPlaceholder: '',
+    description: '',
+    thumbnailUrl: '/images/ai-commercial-3.jpg',
+    videoUrl: 'https://www.youtube.com/watch?v=ps08u-aUw88',
+  },
+  {
+    id: 'ai-commercial-4',
+    title: 'Elevators Demo',
+    category: 'AI Commercial',
+    duration: '',
+    tag: '',
+    clientName: '',
+    clientRole: '',
+    captionPlaceholder: '',
+    description: '',
+    thumbnailUrl: '/images/ai-commercial-4.jpg',
+    videoUrl: 'https://www.youtube.com/watch?v=uOnMOEp5xSA',
+  },
+];
+
 export const siteContent: SiteContent = {
   meta: {
     title: 'AI Agentic Verse | Be The Expert Your Market Sees Every Day',
