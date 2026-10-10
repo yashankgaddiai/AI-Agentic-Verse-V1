@@ -8,11 +8,14 @@
  * - Scarcity Notice: We Take Four Clients A Quarter. Every Client Gets The Team That Sold Them.
  */
 
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Play } from 'lucide-react';
 import { siteContent } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
 import { TitleReveal } from './TitleReveal';
+
+// YouTube ID of the intro video shown in the hero (https://youtu.be/MXbGyNJkQc4)
+const HERO_VIDEO_ID = 'MXbGyNJkQc4';
 
 interface HeroSectionProps {
   onOpenAudit: () => void;
@@ -20,6 +23,7 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAudit }) => {
   const { hero } = siteContent;
+  const [playingVideo, setPlayingVideo] = useState(false);
 
   return (
     <section
@@ -64,6 +68,40 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAudit }) => {
             </p>
           </ScrollReveal>
 
+          {/* Intro video: thumbnail first, YouTube player loads on click */}
+          <ScrollReveal delay={250}>
+            <div className="relative max-w-4xl mx-auto aspect-video rounded-[20px] overflow-hidden border border-[rgba(26,24,21,0.14)] bg-[#1A1815] shadow-[0_24px_60px_-20px_rgba(26,24,21,0.35)]">
+              {playingVideo ? (
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${HERO_VIDEO_ID}?autoplay=1&rel=0&playsinline=1`}
+                  title="AI Agentic Verse intro video"
+                  allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                />
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setPlayingVideo(true)}
+                  aria-label="Play intro video"
+                  className="group absolute inset-0 w-full h-full"
+                >
+                  <img
+                    src="/images/hero-video.jpg"
+                    alt=""
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  />
+                  <span className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-200" />
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <span className="w-20 h-20 rounded-full bg-[#C25A3C] flex items-center justify-center shadow-[0_12px_32px_-8px_rgba(194,90,60,0.7)] transition-transform duration-200 ease-out motion-safe:group-hover:scale-110">
+                      <Play className="w-8 h-8 fill-[#FBFAF8] text-[#FBFAF8] translate-x-0.5" />
+                    </span>
+                  </span>
+                </button>
+              )}
+            </div>
+          </ScrollReveal>
+
           {/* CTA Button & Scarcity Notice */}
           <ScrollReveal delay={300}>
             <div className="flex flex-col items-center gap-4">
@@ -92,15 +130,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAudit }) => {
               <div className="inline-flex items-center gap-2 text-[13.5px] font-medium text-[#6E685E]">
                 <span className="w-2 h-2 rounded-full bg-[#C25A3C] shrink-0" />
                 <span>{hero.scarcityNotice}</span>
-              </div>
-
-              {/* Quick guarantees pill row */}
-              <div className="flex flex-wrap items-center justify-center gap-y-2 gap-x-2 text-[13px] text-[#5F5A52]">
-                <span>First Post Live In 7 Days</span>
-                <span aria-hidden="true" className="text-[#A39C90]">·</span>
-                <span>Or Month One Free</span>
-                <span aria-hidden="true" className="text-[#A39C90]">·</span>
-                <span>You Approve Everything</span>
               </div>
             </div>
           </ScrollReveal>
