@@ -120,7 +120,7 @@ export const OurWorkSection: React.FC<OurWorkSectionProps> = ({ onSelectVideo })
                 <div className="space-y-4">
                   {/* Client Name & Role Caption specified in user prompt */}
                   <div className="inline-flex items-center px-2.5 py-1 rounded-[6px] bg-[#F4F1EC] border border-[rgba(26,24,21,0.08)] text-[12px] font-semibold text-[#1A1815]">
-                    Caption: {video.captionPlaceholder}
+                    {video.captionPlaceholder}
                   </div>
 
                   <h3 className="font-semibold text-[19px] leading-[1.3] text-[#1A1815] group-hover:text-[#C25A3C] transition-colors">
