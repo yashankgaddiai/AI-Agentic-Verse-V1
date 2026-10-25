@@ -237,7 +237,7 @@ export const siteContent: SiteContent = {
     videos: [
       {
         id: 'client-video-1',
-        title: 'Case Study 1: Neshama',
+        title: 'Client Spotlight 1: Neshama',
         category: 'AI Engineer Training Modules',
         duration: '01:18',
         tag: 'Ed-Tech Training',
@@ -252,7 +252,7 @@ export const siteContent: SiteContent = {
       },
       {
         id: 'client-video-2',
-        title: 'Case Study 2: Prithvi',
+        title: 'Client Spotlight 2: Prithvi',
         category: 'AI Engineering Coach',
         duration: '00:54',
         tag: 'Daily AI Updates',
@@ -267,7 +267,7 @@ export const siteContent: SiteContent = {
       },
       {
         id: 'client-video-3',
-        title: 'Case Study 3: Dr. Raghavendra Hunasgi',
+        title: 'Client Spotlight 3: Dr. Raghavendra Hunasgi',
         category: 'Thought Leadership',
         duration: '01:32',
         tag: 'Personal Brand',
