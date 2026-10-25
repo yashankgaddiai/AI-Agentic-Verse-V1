@@ -2,11 +2,11 @@
  * @file Footer.tsx
  * Minimalist footer strictly matching the user's brief:
  * - Coaches | Founders | AI Commercials (links to the offer pages)
- * - © [Current Year, Auto-Filled] AI Agentic Verse. All Rights Reserved.
+ * - Contact email and © [Current Year, Auto-Filled] AI Agentic Verse. All Rights Reserved.
  */
 
 import React from 'react';
-import { siteContent } from '../data/portfolioData';
+import { CONTACT_EMAIL } from '../data/portfolioData';
 import { BrandLogo } from './BrandLogo';
 
 export const Footer: React.FC = () => {
@@ -47,9 +47,15 @@ export const Footer: React.FC = () => {
           </a>
         </div>
 
-        {/* Right: Copyright */}
-        <div className="text-[13px] text-[#857F74]">
-          © {currentYear} AI Agentic Verse. All Rights Reserved.
+        {/* Right: Contact email & copyright */}
+        <div className="flex flex-col items-center md:items-end gap-1 text-[13px] text-[#857F74]">
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="font-medium text-[#1A1815] hover:text-[#C25A3C] transition-colors"
+          >
+            {CONTACT_EMAIL}
+          </a>
+          <span>© {currentYear} AI Agentic Verse. All Rights Reserved.</span>
         </div>
       </div>
     </footer>

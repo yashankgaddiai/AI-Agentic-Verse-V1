@@ -131,7 +131,10 @@ export interface SiteContent {
 }
 
 // Strategy call booking page used by every "Book" button on the site.
-export const BOOKING_URL = 'https://calendly.com/aiagenticverseinternational/30min';
+export const BOOKING_URL = 'https://cal.com/ai-agentic-verse-to0cb6/30min';
+
+// Public contact email shown in the site footers.
+export const CONTACT_EMAIL = 'aiagenticverse.info@gmail.com';
 
 // Web3Forms access key for the Free AI Marketing Audit form (get one free at web3forms.com).
 // Leads are emailed to the address the key was created with.
@@ -470,7 +473,7 @@ export const portfolioContent = {
   projects: siteContent.ourWork.videos,
   featuredProject: siteContent.ourWork.videos[0],
   contact: {
-    email: 'hello@aiagenticverse.com',
+    email: CONTACT_EMAIL,
     responseWindow: 'Replies within 24 hours on business days',
     socialLinks: [
       { label: 'LinkedIn', handle: 'ai-agentic-verse', url: 'https://linkedin.com' },
