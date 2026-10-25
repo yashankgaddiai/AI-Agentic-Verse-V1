@@ -152,7 +152,7 @@ export const aiCommercialVideos: ShowcaseVideo[] = [
     clientRole: '',
     captionPlaceholder: '',
     description: '',
-    thumbnailUrl: '/images/ai-commercial-1.jpg',
+    thumbnailUrl: '/images/logo.png',
     videoUrl: 'https://www.youtube.com/watch?v=-dXnZDxRKT0',
   },
   {
