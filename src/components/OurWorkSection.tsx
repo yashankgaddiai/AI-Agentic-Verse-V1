@@ -127,7 +127,7 @@ export const OurWorkSection: React.FC<OurWorkSectionProps> = ({ onSelectVideo })
                     {video.title}
                   </h3>
 
-                  <p className="font-normal text-[14.5px] leading-[1.6] text-[#5F5A52]">
+                  <p className="font-normal text-[14.5px] leading-[1.6] text-[#5F5A52] whitespace-pre-line">
                     {video.description}
                   </p>
                 </div>

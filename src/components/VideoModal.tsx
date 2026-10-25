@@ -253,7 +253,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ project, onClose }) => {
         {(project.description || project.shortDescription || project.duration) && (
           <div className="p-6 md:p-8 bg-[#1A1815] border-t border-white/10 space-y-3">
             {(project.description || project.shortDescription) && (
-              <p className="text-[15px] sm:text-[16px] leading-[1.65] text-white/80 max-w-3xl">
+              <p className="text-[15px] sm:text-[16px] leading-[1.65] text-white/80 max-w-3xl whitespace-pre-line">
                 {project.description || project.shortDescription}
               </p>
             )}

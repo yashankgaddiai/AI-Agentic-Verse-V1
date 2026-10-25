@@ -244,7 +244,8 @@ export const siteContent: SiteContent = {
         clientName: 'Neshama',
         clientRole: 'AI Engineer Training Modules',
         captionPlaceholder: 'Neshama, AI Engineer Training Modules',
-        description: "We created an AI avatar of the founder to produce entire training video modules for BTech students. The result: a scalable training engine that teaches in the founder's own voice, with no camera, studio or reshoot.",
+        description:
+          "Neshama is an ed-tech company training the next generation of AI engineers, built for BTech students who want real, practical skills.\n\nWe created an AI avatar of the founder to produce entire training video modules — lessons, explainers and course content — at a pace no single person filming alone could match.\n\nThe result: a scalable training engine that teaches in the founder's own voice, letting the course library grow without a camera, a studio, or a reshoot.",
         shortDescription: "An AI avatar of the founder produces full training modules in their own voice, with no camera, studio or reshoot.",
         thumbnailUrl: '/images/client-video-1.jpg',
         videoUrl: 'https://youtu.be/xbGE2NgugwY',
@@ -259,7 +260,8 @@ export const siteContent: SiteContent = {
         clientName: 'Prithvi',
         clientRole: 'AI Engineering Coach',
         captionPlaceholder: 'Prithvi, AI Engineering Coach',
-        description: 'We built his AI avatar from one recording session so he can break down new AI tools and updates every day without filming. The result: an always-on presence in a fast-moving niche.',
+        description:
+          "Prithvi coaches on AI engineering and daily AI updates — a space that moves fast and demands constant content, which left little time for anything else.\n\nWe built his AI avatar from one recording session so he could keep breaking down new AI tools, models and updates for his audience every day, without the daily grind of filming.\n\nThe result: an always-on presence in a fast-moving niche, where staying visible every day is the whole game — now running without eating into his actual work.",
         shortDescription: 'An AI avatar built from one recording session keeps him visible every day in a fast-moving niche.',
         thumbnailUrl: '/images/client-video-2.jpg',
         videoUrl: 'https://youtube.com/shorts/IrHB0ii4KEM',
@@ -274,7 +276,8 @@ export const siteContent: SiteContent = {
         clientName: 'Dr. Raghavendra Hunasgi',
         clientRole: 'CMO & Co-founder, Zeebu',
         captionPlaceholder: 'Dr. Raghavendra Hunasgi, CMO & Co-founder, Zeebu',
-        description: 'Serial entrepreneur, Web3 unicorn CMO and bestselling author. We cloned his AI avatar from a single recording session. The result: a thought-leadership engine that speaks in his voice and runs 24/7.',
+        description:
+          "Dr. Raghavendra Hunasgi is a serial entrepreneur, CMO and Co-founder of Web3 unicorn Zeebu, and bestselling author of Unleashing Growth.\n\nWe cloned his AI avatar from a single recording session to keep his personal brand active at scale — delivering his insights on growth, Web3 and branding across platforms, without him ever picking up a camera again.\n\nThe result: a thought-leadership engine that speaks in his voice, carries his expertise, and runs 24/7.",
         shortDescription: 'An AI avatar cloned from one recording session delivers his growth, Web3 and branding insights 24/7.',
         thumbnailUrl: '/images/client-video-3.jpg',
         videoUrl: 'https://youtu.be/-5l1AhrZPlQ',
