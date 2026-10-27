@@ -360,7 +360,7 @@ export const siteContent: SiteContent = {
         title: 'Coaches',
         description:
           'Fill Your Calendar With People Who Already Trust You Before The First Call. Keep Your Hours For Coaching, Not Content.',
-        linkText: 'See The Coach Offer',
+        linkText: 'Book A Free Consultation Call',
         linkUrl: BOOKING_URL,
       },
       {
