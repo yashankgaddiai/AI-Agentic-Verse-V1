@@ -130,6 +130,8 @@ export const WhoWeServeSection: React.FC = () => {
               <div className="mt-6 pt-6 border-t border-[rgba(26,24,21,0.08)]">
                 <a
                   href={whoWeServe.audiences[1].linkUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 font-semibold text-[15px] text-[#1A1815] hover:text-[#C25A3C] transition-colors group"
                 >
                   <span>{whoWeServe.audiences[1].linkText}</span>

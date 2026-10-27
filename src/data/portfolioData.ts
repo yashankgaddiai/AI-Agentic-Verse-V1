@@ -367,8 +367,8 @@ export const siteContent: SiteContent = {
         title: 'Founders',
         description:
           'Build A Following On LinkedIn And X That Brings In Customers, Hires, And Investors. In Your Words, Without Your Evenings.',
-        linkText: 'See The Founder Offer',
-        linkUrl: '/founder.html',
+        linkText: 'Book A Free Consultation Call',
+        linkUrl: BOOKING_URL,
       },
     ],
   },
