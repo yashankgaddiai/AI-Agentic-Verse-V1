@@ -361,7 +361,7 @@ export const siteContent: SiteContent = {
         description:
           'Fill Your Calendar With People Who Already Trust You Before The First Call. Keep Your Hours For Coaching, Not Content.',
         linkText: 'See The Coach Offer',
-        linkUrl: '/coach.html',
+        linkUrl: BOOKING_URL,
       },
       {
         title: 'Founders',
